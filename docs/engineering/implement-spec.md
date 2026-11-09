@@ -76,7 +76,9 @@ A worktree holds only what git tracks. Tests that read gitignored fixtures, loca
 - Every ticket's trace shows `tdd` running, with a failing test before the code.
 - Merges into the integration branch are fast-forwards, not conflict resolutions.
 - The run ends on one branch with every ticket resolved, and a PR only if your tracker wanted one.
-- With model routing set up, each dispatch names the model of its role or tier, and an implementer that failed twice comes back one tier higher.
+- With model routing set up, each dispatch names the model of its role or tier, and an implementer that failed twice comes back one tier higher. A `hard` one comes back only after `fable-advisor` has named the cause.
+- A ticket with an open design choice carries `fable-advisor`'s verdict before any implementer touches it, and no implementer runs on Fable.
+- The run ends on a `fable-advisor` final gate that says **Ship**, after `/code-review` and its fixes.
 
 ## Where it fits
 

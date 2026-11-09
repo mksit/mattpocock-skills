@@ -35,7 +35,7 @@ It starts each section with the recommended answer, and skips any question its e
 | **Issue tracker** | the one matching your `git remote` | always, because this is the one real choice |
 | **Triage labels** | keep the five canonical names (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`) | only if the `triage` skill is installed |
 | **Domain docs** | single-context: one `.agents/docs/GLOSSARY.md` plus `.agents/docs/adr/` | only if it spots monorepo signals, and then it offers a multi-context `GLOSSARY-MAP.md` |
-| **Model routing** | the seed: fixed roles (exploration, merger, reviewers) on a set model, implementers on a tier picked by what their ticket touches | never; it writes the seed, and keeps an existing `models.md` untouched |
+| **Model routing** | the seed: fixed roles (exploration, merger, reviewers, `fable-advisor`) on a set model, implementers on a tier picked by what their ticket touches | never; it writes the seed, and keeps an existing `models.md` untouched |
 
 The tracker options:
 

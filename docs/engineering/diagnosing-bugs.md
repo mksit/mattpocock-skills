@@ -83,6 +83,7 @@ v1.0.0 renamed it to `/diagnosing-bugs`. The old name no longer exists. Anything
 - The failure it reproduces is the one you reported, not a nearby one it found on the way.
 - It shrinks the repro before it starts guessing, and can tell you why it needs each remaining piece.
 - It shows you a ranked list of 3–5 hypotheses, each with a prediction you could falsify, before it tests any of them.
+- When every hypothesis is falsified, it asks `fable-advisor` for the next one instead of guessing again.
 - Every debug log it adds carries a tag like `[DEBUG-a4f2]`, and a grep for that tag comes back empty when it declares done.
 - The commit or PR message names which hypothesis was right.
 - When it cannot lock the bug down with a test, it says so instead of writing a shallow one.

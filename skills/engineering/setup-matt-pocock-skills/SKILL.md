@@ -65,7 +65,7 @@ The defaults are the five canonical roles, each label string equal to its name: 
 
 Offer **multi-context** (`.agents/docs/GLOSSARY-MAP.md` pointing to per-context `src/<context>/.agents/docs/GLOSSARY.md` files) only when exploration found monorepo signals. Then confirm which layout they want.
 
-**Section D: Model routing.** Write the seed [models.md](./models.md) without asking. It routes fixed roles (exploration, merger, reviewers) to a set model, and an implementer to a tier by what its ticket touches. When `.agents/docs/models.md` already exists, keep it as it is: never overwrite a user's routing with the seed.
+**Section D: Model routing.** Write the seed [models.md](./models.md) without asking. It routes fixed roles (exploration, merger, reviewers, the `fable-advisor`) to a set model, and an implementer to a tier by what its ticket touches. When `.agents/docs/models.md` already exists, keep it as it is: never overwrite a user's routing with the seed.
 
 ### 3. Confirm and edit
 

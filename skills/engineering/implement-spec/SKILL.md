@@ -14,7 +14,7 @@ The goal is the entire spec implemented on a single **integration branch**, with
 
 The tickets are not a list of steps. They are a **task graph** with blocking relationships between them. This means there is always a **frontier** of tickets which are ready to be grabbed.
 
-Start every subagent with a fresh context window. Dispatch each one as the plugin's role agent named below (`analyst` reads, `implementer` changes the repo); on a harness without them, use a general-purpose subagent with the same brief. A role agent carries the standing rules, so a brief holds only the pointers and what differs for this ticket.
+Start every subagent with a fresh context window. Dispatch each one as the plugin's role agent named below (`analyst` reads, `implementer` changes the repo, `fable-advisor` judges); on a harness without them, use a general-purpose subagent with the same brief. A role agent carries the standing rules, so a brief holds only the pointers and what differs for this ticket.
 
 Communication to and from subagents should be sparse. Communicate primarily through **context pointers**: to the spec, tickets, research notes, and previous commits. Don't duplicate information already available via pointers.
 
@@ -22,7 +22,7 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 ## Steps
 
-1. Read the spec and tickets to understand the task graph. Give each ticket its tier from the model routing, by what the ticket touches, not by its length.
+1. Read the spec and tickets to understand the task graph. A ticket that leaves a design choice open goes to the `fable-advisor` agent first; record its verdict on the ticket. Give each ticket its tier from the model routing, by what the ticket touches, not by its length.
 
 2. (optional) Use an **exploration subagent** (the `analyst` agent, `exploration` role) to conduct any exploration required by the tickets - relevant codebase files or external documentation. Ensure the exploration subagent can save files - it should save its markdown notes in a directory outside the repo, accessible by all future subagents. This lets **implementer subagents** focus on implementation rather than exploration.
 
@@ -39,6 +39,8 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. Fix all issues raised by the code review in a single fresh **implementer subagent** (the `review fix implementer` role).
 
-8. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
+8. Dispatch the `fable-advisor` agent as the **final gate**: the integration branch's diff against the spec, with the verification evidence. On **Fix first**, fix every item with one fresh `review fix implementer`, then run this step again. On **Rethink**, stop and bring its reason to the user. Done when its verdict is **Ship**.
 
-9. Clean up all **implementer subagent** worktrees.
+9. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
+
+10. Clean up all **implementer subagent** worktrees.
