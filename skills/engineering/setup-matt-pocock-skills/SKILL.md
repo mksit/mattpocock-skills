@@ -11,7 +11,7 @@ Scaffold the per-repo configuration that the engineering skills assume:
 - **Issue tracker**: where issues live (GitHub by default; local markdown is also supported out of the box)
 - **Triage labels**: the strings used for the five canonical triage roles
 - **Domain docs**: where `GLOSSARY.md` and ADRs live, and the consumer rules for reading them
-- **Model routing**: which model and effort each subagent role runs on, and how an implementer's ticket picks its tier
+- **Model routing**: which model and effort each subagent role runs on, and which tier each implementer gets from its ticket
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
@@ -23,12 +23,12 @@ Look at the current repo to understand its starting state. Read whatever exists;
 
 - `git remote -v` and `.git/config`: is this a GitHub repo? Which one?
 - `AGENTS.md` and `CLAUDE.md` at the repo root: does either exist? Is there already an `## Agent skills` section in either?
-- `.agents/docs/GLOSSARY.md` and `.agents/docs/GLOSSARY-MAP.md`, and their legacy places: `GLOSSARY.md` / `GLOSSARY-MAP.md` / `CONTEXT.md` / `CONTEXT-MAP.md` at the repo root (and a per-context `src/<context>/GLOSSARY.md`). If a legacy file exists, offer to `git mv` it to its `GLOSSARY` name under the matching `.agents/docs/`, and rewrite the map's links.
-- `.agents/docs/adr/` and any `src/*/.agents/docs/adr/` directories, and the legacy `docs/adr/` and `src/*/docs/adr/`: offer to `git mv` a legacy ADR directory into place.
-- `.agents/docs/`: does this skill's prior output already exist? In particular, does `.agents/docs/models.md` exist, and has the user edited it away from the seed?
-- The legacy `docs/agents/`: if it holds this skill's earlier output, offer to `git mv` each file into `.agents/docs/` and rewrite the paths in the `## Agent skills` block.
-- `.gitignore`: does a rule ignore `.agents/`? This skill's files must be committed, so if `git check-ignore` reports one of them ignored, propose the negation rules that keep `.agents/docs/` tracked.
-- `.agents/docs/scratch/`, or the legacy `.scratch/`: a sign that a local-markdown issue tracker convention is already in use. Offer to `git mv` a legacy `.scratch/` to `.agents/docs/scratch/`.
+- `.agents/docs/GLOSSARY.md` and `.agents/docs/GLOSSARY-MAP.md`. Also look for the legacy names at the repo root (`GLOSSARY.md` / `GLOSSARY-MAP.md` / `CONTEXT.md` / `CONTEXT-MAP.md`) and any per-context `src/<context>/GLOSSARY.md`. If you find a legacy file, offer to `git mv` it to its `GLOSSARY` name under the matching `.agents/docs/`, and rewrite the map's links.
+- `.agents/docs/adr/` and any `src/*/.agents/docs/adr/` directories. If you find a legacy `docs/adr/` or `src/*/docs/adr/`, offer to `git mv` it into place.
+- `.agents/docs/`: does this skill's prior output already exist? In particular, is there a `.agents/docs/models.md`, and has the user edited it away from the seed?
+- The legacy `docs/agents/`: if it holds this skill's earlier output, offer to `git mv` each file into `.agents/docs/`, and rewrite the paths in the `## Agent skills` block.
+- `.gitignore`: does a rule ignore `.agents/`? This skill's files need to be committed. If `git check-ignore` reports any of them as ignored, propose negation rules that keep `.agents/docs/` tracked.
+- `.agents/docs/scratch/`, or the legacy `.scratch/`: a sign that a local-markdown issue tracker convention is already in use. If you find a legacy `.scratch/`, offer to `git mv` it to `.agents/docs/scratch/`.
 - Is the `triage` skill installed? (a `triage` skill folder alongside this one, or `triage` in your available skills.) This decides whether Section B runs at all.
 - Monorepo signals: a `pnpm-workspace.yaml`, a `workspaces` field in `package.json`, or a populated `packages/*` with its own `src/`. These are present only in a genuinely large multi-package repo; their absence means single-context, which is almost every repo.
 
@@ -65,7 +65,7 @@ The defaults are the five canonical roles, each label string equal to its name: 
 
 Offer **multi-context** (`.agents/docs/GLOSSARY-MAP.md` pointing to per-context `src/<context>/.agents/docs/GLOSSARY.md` files) only when exploration found monorepo signals. Then confirm which layout they want.
 
-**Section D: Model routing.** Write the seed [models.md](./models.md) without asking. It routes fixed roles (exploration, merger, reviewers, the `fable-advisor`) to a set model, and an implementer to a tier by what its ticket touches. When `.agents/docs/models.md` already exists, keep it as it is: never overwrite a user's routing with the seed.
+**Section D: Model routing.** Write the seed [models.md](./models.md) without asking. It sends each fixed role to a set model (exploration, merger, the reviewers, and the **advisor subagent**, which is the `fable-advisor` agent). It sends each implementer to a tier, based on what its ticket touches. If `.agents/docs/models.md` already exists, leave it as it is. Never overwrite a user's routing with the seed.
 
 ### 3. Confirm and edit
 
@@ -121,10 +121,10 @@ Then write the docs files using the seed templates in this skill folder as a sta
 - [issue-tracker-local.md](./issue-tracker-local.md): local-markdown issue tracker
 - [triage-labels.md](./triage-labels.md): label mapping (only if `triage` is installed)
 - [domain.md](./domain.md): domain doc consumer rules + layout
-- [models.md](./models.md): subagent model routing (skip it when `.agents/docs/models.md` already exists)
+- [models.md](./models.md): subagent model routing (skip this if `.agents/docs/models.md` already exists)
 
 For "other" issue trackers, write `.agents/docs/issue-tracker.md` from scratch using the user's description.
 
 ### 5. Done
 
-Tell the user the setup is complete and which engineering skills will now read from these files. Mention they can edit `.agents/docs/*.md` directly later, including retuning `models.md`; re-running this skill is only necessary if they want to switch issue trackers or restart from scratch.
+Tell the user the setup is complete and which engineering skills will now read from these files. Mention they can edit `.agents/docs/*.md` directly later (including retuning `models.md`); re-running this skill is only necessary if they want to switch issue trackers or restart from scratch.

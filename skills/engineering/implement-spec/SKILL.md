@@ -8,13 +8,13 @@ You have been provided a spec. This spec should have tickets associated with it,
 
 The issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
 
-The **model routing** (`.agents/docs/models.md`, named in the `## Agent skills` block) should also have been provided. It names the model and effort for each subagent role, and the **tier** an implementer takes from its ticket. Pass the role's `model` and `effort` on every dispatch. If the repo has no model routing, run every subagent on your own model, and tell the user once that `/setup-matt-pocock-skills` adds one.
+The **model routing** (`.agents/docs/models.md`, named in the `## Agent skills` block) should also have been provided. It names the model and effort for each subagent role, and the **tier** each implementer gets from its ticket. Pass the role's `model` and `effort` on every dispatch. If there is no model routing, run every subagent on your own model, and tell the user once that `/setup-matt-pocock-skills` can add one.
 
 The goal is the entire spec implemented on a single **integration branch**, with every ticket resolved the way the issue tracker closes work.
 
 The tickets are not a list of steps. They are a **task graph** with blocking relationships between them. This means there is always a **frontier** of tickets which are ready to be grabbed.
 
-Start every subagent with a fresh context window. Dispatch each one as the plugin's role agent named below (`analyst` reads, `implementer` changes the repo, `fable-advisor` judges); on a harness without them, use a general-purpose subagent with the same brief. A role agent carries the standing rules, so a brief holds only the pointers and what differs for this ticket.
+Start every subagent with a fresh context window. Dispatch each one as the plugin's role agent named below. The `analyst` agent reads, the `implementer` agent changes the repo, and the **advisor subagent** (the `fable-advisor` agent) judges. If your harness doesn't have them, use a general-purpose subagent with the same brief. The role agent already carries the standing rules, so the brief only needs the pointers and what's different about this ticket.
 
 Communication to and from subagents should be sparse. Communicate primarily through **context pointers**: to the spec, tickets, research notes, and previous commits. Don't duplicate information already available via pointers.
 
@@ -22,38 +22,39 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 ## Autonomy
 
-The run is **autonomous**: it works the whole graph to the final gate without handing the next move to the user.
+Work **autonomously**: take the whole graph through to the final gate without handing the next move back to the user.
 
-- A design choice the spec leaves open is the `fable-advisor` agent's to settle. Record its verdict on the ticket and carry on.
-- Work found outside the spec becomes a new ticket on the tracker, carrying what was found, and the run carries on. The ticket joins the graph only when one of the spec's acceptance criteria cannot pass without it; every other found ticket stays off the graph for the user, so the graph never grows past the spec.
-- For `tdd`, the spec's seams are pre-agreed; a seam the spec lacks is agreed by the `fable-advisor` agent.
-- The run stops for the user only where:
-  - the repo's instructions reserve an action to the user (a merge into the default branch, a push, a publish), unless they authorize it in advance;
-  - the final gate says **Rethink**;
-  - a `hard` implementer has failed its ticket twice and the `fable-advisor` agent cannot name the cause.
-- The closing report lists every verdict the `fable-advisor` agent gave and every ticket the run opened, so the user reviews them in one pass.
+- When the spec leaves a design choice open, have the advisor settle it. Record its verdict on the ticket and carry on.
+- When you find work outside the spec, open a new ticket on the tracker describing what you found, and carry on.
+- Add a found ticket to the graph only if one of the spec's acceptance criteria can't pass without it. Leave every other found ticket off the graph for the user. The graph never grows past the spec.
+- For `tdd`, treat the spec's seams as pre-agreed. When the spec is missing a seam, have the advisor agree it.
+- Stop for the user only when:
+  - the repo's instructions reserve an action to the user (a merge into the default branch, a push, a publish), and they haven't authorized it in advance
+  - the final gate says **Rethink**
+  - a `hard` implementer has failed its ticket twice, and the advisor can't name the cause
+- In the closing report, list every verdict the advisor gave and every ticket you opened, so the user can review them in one pass.
 
 ## Steps
 
-1. Read the spec and tickets to understand the task graph. A ticket that leaves a design choice open goes to the `fable-advisor` agent first; record its verdict on the ticket. Give each ticket its tier from the model routing, by what the ticket touches, not by its length.
+1. Read the spec and tickets to understand the task graph. If a ticket leaves a design choice open, send it to the advisor first, and record its verdict on the ticket. Give each ticket a tier from the model routing, based on what it touches, not how long it is.
 
-2. (optional) Use an **exploration subagent** (the `analyst` agent, `exploration` role) to conduct any exploration required by the tickets - relevant codebase files or external documentation. Ensure the exploration subagent can save files - it should save its markdown notes in a directory outside the repo, accessible by all future subagents. This lets **implementer subagents** focus on implementation rather than exploration.
+2. (optional) Use an **exploration subagent** (the `analyst` agent, in the `exploration` role) to conduct any exploration required by the tickets - relevant codebase files or external documentation. Ensure the exploration subagent can save files - it should save its markdown notes in a directory outside the repo, accessible by all future subagents. This lets **implementer subagents** focus on implementation rather than exploration.
 
 3. Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.
 
-4. Use a fresh **implementer subagent** (the `implementer` agent) for each ticket, each in its own worktree on its own branch, on the model of the ticket's tier. An implementer that fails its ticket twice is re-dispatched one tier higher, never retried at the same tier; a `hard` one is re-dispatched only after the `fable-advisor` agent has named the cause. No implementer runs on Fable. Each implementer subagent:
+4. Use a fresh **implementer subagent** (the `implementer` agent) for each ticket, each in its own worktree on its own branch, running on the model for its ticket's tier. If an implementer fails its ticket twice, re-dispatch it one tier higher. Never retry it at the same tier. If a `hard` one fails twice, wait until the advisor has named the cause before you re-dispatch it. Never run an implementer on Fable. Each implementer subagent:
    - confirms its worktree is based on the integration branch before starting, and resets onto it if not;
    - calls the Skill tool with `tdd` to build the ticket;
    - merges the integration branch tip into its own branch before reporting done
 
-5. Once an **implementer subagent** completes, merge its work to the integration branch with a **merger subagent** (the `implementer` agent with a merge brief, `merger` role). If it cannot finish the merge cleanly, re-dispatch it as `merger with conflicts`, with a brief that allows it to resolve conflicts.
+5. Once an **implementer subagent** completes, merge its work to the integration branch with a **merger subagent** (the `implementer` agent with a merge brief, in the `merger` role). If it can't finish the merge cleanly, re-dispatch it in the `merger with conflicts` role, with a brief that lets it resolve conflicts.
 
 6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. This allows for maximum concurrency.
 
-7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch, with its merge-base with the default branch as the fixed point and this spec as its spec. Fix all issues raised by the code review in a single fresh **implementer subagent** (the `review fix implementer` role).
+7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. Use its merge-base with the default branch as the fixed point, and this spec as the spec. Fix all issues raised by the code review in a single fresh **implementer subagent** (in the `review fix implementer` role).
 
-8. Dispatch the `fable-advisor` agent as the **final gate**: the integration branch's diff against the spec, with the verification evidence. On **Fix first**, fix every item with one fresh `review fix implementer`, then run this step again. On **Rethink**, stop and bring its reason to the user. Done when its verdict is **Ship**.
+8. Dispatch the advisor as the **final gate**. Give it the integration branch's diff against the spec, and the verification evidence. If it says **Fix first**, fix every item in one fresh **implementer subagent** (in the `review fix implementer` role), then run this step again. If it says **Rethink**, stop and take its reason to the user. This step is done when the advisor says **Ship**.
 
-9. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work. Report the integration branch with the list the Autonomy section names.
+9. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work. Report the integration branch, with the closing list from the Autonomy section.
 
 10. Clean up all **implementer subagent** worktrees.

@@ -65,7 +65,7 @@ A tracker issue may not return a very large spec in full, and there is no local 
 ## It's working if
 
 - It starts writing instead of asking you a new round of questions.
-- It shows you the seams before it writes, and proposes as few as it can, with `fable-advisor`'s verdict on them beside the list.
+- It shows you the seams before it writes, proposes as few as it can, and puts `fable-advisor`'s verdict on them next to the list.
 - It uses your project's nouns, not generic product-management boilerplate.
 - You remember making every decision in it. It invented nothing to fill a section.
 - The out-of-scope section lists real things. The things you refused are usually the most useful lines on the page.

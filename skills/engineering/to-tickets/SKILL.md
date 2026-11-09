@@ -41,7 +41,7 @@ Give each ticket its **blocking edges**: the other tickets that must complete be
 
 ### 4. Quiz the user
 
-First dispatch the `fable-advisor` agent on the draft breakdown: its slices, sizes and blocking edges. Fold its verdict in, and tell the user what it changed.
+First, dispatch the **advisor subagent** (the `fable-advisor` agent) on the draft breakdown: its slices, sizes and blocking edges. Fold its verdict in, and tell the user what it changed.
 
 Present the proposed breakdown as a numbered list. For each ticket, show:
 

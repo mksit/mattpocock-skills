@@ -57,7 +57,7 @@ Each smell reads *what it is* → *how to fix*; match it against the diff:
 
 ### 4. Spawn both sub-agents in parallel
 
-Issue both sub-agent calls together, in the foreground, and aggregate the reports they return. Dispatch each as the plugin's read-only `analyst` agent, with a review brief (on a harness without it, a general-purpose subagent with the same brief). When the repo has a model routing (`.agents/docs/models.md`), pass the `code-review standards reviewer` and `code-review spec reviewer` models.
+Issue both sub-agent calls together, in the foreground, and aggregate the reports they return. Dispatch each one as the plugin's read-only `analyst` agent, with a review brief. If your harness doesn't have it, use a general-purpose subagent with the same brief. If the repo has a model routing (`.agents/docs/models.md`), pass the `code-review standards reviewer` and `code-review spec reviewer` models.
 
 **Standards sub-agent prompt** should include:
 

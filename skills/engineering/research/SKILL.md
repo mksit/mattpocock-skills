@@ -3,7 +3,7 @@ name: research
 description: Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.
 ---
 
-Spin up a **background agent** to do the research, so you keep working while it reads. Start it with a fresh context window. Dispatch it as the plugin's read-only `analyst` agent: it cannot spawn agents of its own, and it writes only its notes file. On a harness without it, use a general-purpose subagent with the same brief. When the repo has a model routing (`.agents/docs/models.md`), pass the `research` model.
+Spin up a **background agent** to do the research, so you keep working while it reads. Start it with a fresh context window. Dispatch it as the plugin's read-only `analyst` agent. It can't spawn agents of its own, and the only file it writes is its notes file. If your harness doesn't have it, use a general-purpose subagent with the same brief. If the repo has a model routing (`.agents/docs/models.md`), pass the `research` model.
 
 Its job:
 

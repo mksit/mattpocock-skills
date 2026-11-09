@@ -79,7 +79,7 @@ This is a real bug, still unfixed, and users report it across [harnesses](https:
 - Later rounds ask things the first round could not have asked.
 - It goes and looks facts up (reading files, dispatching a sub-agent) rather than asking you something it could have found out.
 - Research running in the background does not stall the round; only the questions that depend on it wait.
-- A question that would be expensive to get wrong carries a recommendation from `fable-advisor`, not just the session's own guess.
+- A question that would be expensive to get wrong comes with `fable-advisor`'s recommendation, not just the session's own guess.
 - Before it calls the tree done, `fable-advisor` reads every settled decision, and anything it flags comes back as a new question.
 - It stops at the end and asks you to confirm the understanding is shared, instead of starting work.
 - Question count stays high while round count stays low.

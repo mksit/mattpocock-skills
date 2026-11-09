@@ -14,7 +14,7 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
-Dispatch the `fable-advisor` agent with the seams and the code they cut through. Then check with the user that these seams match their expectations, showing its verdict beside them.
+Dispatch the **advisor subagent** (the `fable-advisor` agent) with the seams and the code they cut through. Then check with the user that these seams match their expectations, showing the advisor's verdict alongside them.
 
 3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
 
