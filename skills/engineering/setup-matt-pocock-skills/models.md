@@ -17,7 +17,7 @@ A value is a model alias (`haiku`, `sonnet`, `opus`, `fable`), optionally with a
 - wayfinder research: sonnet @medium
 - architecture walker: opus @high
 - design-it-twice designers: opus, fable, sonnet
-- judgment advisor: fable @medium
+- fable-advisor: fable @medium
 
 ## Implementers, by tier
 
@@ -26,19 +26,21 @@ An implementer (or any subagent that changes code) takes the tier of its ticket:
 - trivial: sonnet @low
 - standard: sonnet @medium
 - hard: opus @high
-- judgment: fable @medium
+
+No implementer runs on Fable. Fable judges; it never writes code.
 
 What puts a ticket in each tier:
 
 - **trivial**: the change is fully stated and mechanical. Docs, config, renames, file moves, deleting code with no callers, running a check and reporting it.
 - **standard**: a feature or refactor with a clear spec and an existing pattern to follow, including multi-file mechanical edits.
 - **hard**: a wrong change can pass its tests silently, or the cause is unknown. A bug fix with no known root cause, performance work, concurrency, the build system, data or history migrations.
-- **judgment**: the ticket leaves a design choice open. Settle the choice before dispatch where you can; use this tier only where you can't.
+
+A ticket that leaves a design choice open is not a tier: the `fable-advisor` agent settles the choice before dispatch, and the ticket then takes the tier of what it touches.
 
 ## Routing rules
 
 - Tier a ticket by what it touches, not by its length. A short ticket in a hard area is hard.
 - When two tiers fit, take the higher one.
-- An implementer that fails its acceptance twice is re-dispatched one tier higher, never retried at the same tier.
+- An implementer that fails its acceptance twice is re-dispatched one tier higher, never retried at the same tier. A `hard` implementer that fails twice is not re-dispatched until `fable-advisor` has named the cause.
 - A merger that cannot finish a merge cleanly is re-dispatched as `merger with conflicts`.
 - A running subagent keeps its model. A new tier applies to the next dispatch.

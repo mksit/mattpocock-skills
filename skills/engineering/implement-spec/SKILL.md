@@ -28,7 +28,7 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 3. Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.
 
-4. Use a fresh **implementer subagent** (the `implementer` agent) for each ticket, each in its own worktree on its own branch, on the model of the ticket's tier. An implementer that fails its ticket twice is re-dispatched one tier higher, never retried at the same tier. Each implementer subagent:
+4. Use a fresh **implementer subagent** (the `implementer` agent) for each ticket, each in its own worktree on its own branch, on the model of the ticket's tier. An implementer that fails its ticket twice is re-dispatched one tier higher, never retried at the same tier; a `hard` one is re-dispatched only after the `fable-advisor` agent has named the cause. No implementer runs on Fable. Each implementer subagent:
    - confirms its worktree is based on the integration branch before starting, and resets onto it if not;
    - calls the Skill tool with `tdd` to build the ticket;
    - merges the integration branch tip into its own branch before reporting done

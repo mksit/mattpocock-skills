@@ -2,7 +2,7 @@
 
 ## fable-advisor
 
-`agents/fable-agent.md` is adapted from `agents/fable-advisor.md` in https://github.com/DannyMac180/fable-advisor, used under the MIT License:
+`agents/fable-advisor.md` is adapted from `agents/fable-advisor.md` in https://github.com/DannyMac180/fable-advisor, used under the MIT License:
 
 ```
 MIT License
