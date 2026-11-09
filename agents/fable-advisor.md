@@ -15,7 +15,7 @@ The dispatcher sets your reasoning effort from the repo's model routing (`.agent
 ## When you are called
 
 1. **Commitment boundary**: before the caller commits to something costly to undo.
-   - A ticket that leaves a design choice open: settle the choice before an implementer is dispatched. The implementer then builds it on its own tier's model, never on Fable.
+   - A ticket that leaves a design choice open, or a `tdd` seam an `implement-spec` run's spec lacks: settle it before an implementer builds on it. The implementer then builds it on its own tier's model, never on Fable.
    - A spec's seams, or a ticket breakdown's slices and blocking edges, before the user sees them.
    - A grilling question whose wrong answer is costly to undo (an architecture choice, a data or history migration, an API or file-format shape): you give the recommended answer.
    - A grilling session's settled decisions, before it ends: name each unvisited branch, contradiction or silent assumption.

@@ -79,6 +79,7 @@ A worktree holds only what git tracks. Tests that read gitignored fixtures, loca
 - With model routing set up, each dispatch names the model of its role or tier, and an implementer that failed twice comes back one tier higher. A `hard` one comes back only after `fable-advisor` has named the cause.
 - A ticket with an open design choice carries `fable-advisor`'s verdict before any implementer touches it, and no implementer runs on Fable.
 - The run ends on a `fable-advisor` final gate that says **Ship**, after `/code-review` and its fixes.
+- It asks you nothing between start and final gate, except an action your repo reserves to you; the closing report lists every `fable-advisor` verdict and every ticket it opened.
 
 ## Where it fits
 

@@ -20,6 +20,19 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 **Implementer subagents** should be run in the background where possible for maximum concurrency.
 
+## Autonomy
+
+The run is **autonomous**: it works the whole graph to the final gate without handing the next move to the user.
+
+- A design choice the spec leaves open is the `fable-advisor` agent's to settle. Record its verdict on the ticket and carry on.
+- Work found outside the spec becomes a new ticket on the tracker, carrying what was found, and the run carries on. A new ticket that blocks the spec joins the graph; any other waits for the user.
+- For `tdd`, the spec's seams are pre-agreed; a seam the spec lacks is agreed by the `fable-advisor` agent.
+- The run stops for the user only where:
+  - the repo's instructions reserve an action to the user (a merge into the default branch, a push, a publish), unless they authorize it in advance;
+  - the final gate says **Rethink**;
+  - a `hard` implementer has failed its ticket twice and the `fable-advisor` agent cannot name the cause.
+- The closing report lists every verdict the `fable-advisor` agent gave and every ticket the run opened, so the user reviews them in one pass.
+
 ## Steps
 
 1. Read the spec and tickets to understand the task graph. A ticket that leaves a design choice open goes to the `fable-advisor` agent first; record its verdict on the ticket. Give each ticket its tier from the model routing, by what the ticket touches, not by its length.
@@ -37,10 +50,10 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. This allows for maximum concurrency.
 
-7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. Fix all issues raised by the code review in a single fresh **implementer subagent** (the `review fix implementer` role).
+7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch, with its merge-base with the default branch as the fixed point and this spec as its spec. Fix all issues raised by the code review in a single fresh **implementer subagent** (the `review fix implementer` role).
 
 8. Dispatch the `fable-advisor` agent as the **final gate**: the integration branch's diff against the spec, with the verification evidence. On **Fix first**, fix every item with one fresh `review fix implementer`, then run this step again. On **Rethink**, stop and bring its reason to the user. Done when its verdict is **Ship**.
 
-9. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
+9. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work. Report the integration branch with the list the Autonomy section names.
 
 10. Clean up all **implementer subagent** worktrees.
