@@ -23,8 +23,8 @@ Reach for it when the *words* are the problem:
 
 None up front. The skill writes into two places and creates both lazily:
 
-- **`GLOSSARY.md`** at the repo root. The skill creates it when you settle the first term. In a repo with a `GLOSSARY-MAP.md` at the root, terms go into the per-context `GLOSSARY.md` the map points at instead.
-- **`docs/adr/`**. The skill creates it with the first ADR that clears the bar.
+- **`.agents/docs/GLOSSARY.md`**. The skill creates it when you settle the first term. In a repo with an `.agents/docs/GLOSSARY-MAP.md`, terms go into the per-context `src/<context>/.agents/docs/GLOSSARY.md` the map points at instead.
+- **`.agents/docs/adr/`**. The skill creates it with the first ADR that clears the bar.
 
 Nothing needs to exist before you start, and the skill creates nothing in advance.
 
@@ -32,7 +32,7 @@ Nothing needs to exist before you start, and the skill creates nothing in advanc
 
 The glossary and the ADR have different bars. Most of the trouble with this skill comes from mixing them up.
 
-| | `GLOSSARY.md` | `docs/adr/NNNN-slug.md` |
+| | `GLOSSARY.md` | `.agents/docs/adr/NNNN-slug.md` |
 | --- | --- | --- |
 | Holds | Terms. What a thing **is**, in one or two sentences, with rejected synonyms under `_Avoid_` | One decision, in one to three sentences: context, choice, reason |
 | Bar to write | A vague term became canonical | **All three**: hard to reverse, surprising without context, the result of a real trade-off |
@@ -47,7 +47,7 @@ The `GLOSSARY.md` rule matters most, because it is the one that breaks in practi
 
 When you state how something works, the skill checks the code and points out any contradiction. *"Your code cancels entire Orders, but you just said partial cancellation is possible, which is right?"* The skill makes the language and the code agree, out loud, before it changes either.
 
-It cross-references **code** and the committed `GLOSSARY.md` and ADRs, and nothing else. It does not search your issue tracker. If your team argued out a naming collision and settled it in a closed issue months ago, the skill raises it again as if it were new. There is [an open request](https://github.com/mattpocock/skills/issues/717) to fix this. Until then, the workaround is to put the instruction in your own `docs/agents/domain.md`, which the skills already read.
+It cross-references **code** and the committed `GLOSSARY.md` and ADRs, and nothing else. It does not search your issue tracker. If your team argued out a naming collision and settled it in a closed issue months ago, the skill raises it again as if it were new. There is [an open request](https://github.com/mattpocock/skills/issues/717) to fix this. Until then, the workaround is to put the instruction in your own `.agents/docs/domain.md`, which the skills already read.
 
 ## Common questions
 
@@ -55,7 +55,7 @@ It cross-references **code** and the committed `GLOSSARY.md` and ADRs, and nothi
 The size is a symptom. The cause is that the file has taken in implementation detail and decisions that never belonged in a glossary. The fix is a direct instruction: `/grill-with-docs make my GLOSSARY.md more concise and remove any implementation details from it`. Run it against a bloated file and most of it goes. Only split it with a `GLOSSARY-MAP.md` once the file is lean and still covers two domains that a reader would not want to hold at once. Splitting a bloated file gives you several bloated files. The skill's guidance here is not yet strong enough to prevent the growth in the first place, and the issue tracking that is still open.
 
 **Why is it `GLOSSARY.md` and not `CONTEXT.md`?**
-It was `CONTEXT.md` (and `CONTEXT-MAP.md`) until 1.3.0. The file is a glossary and nothing else, so `GLOSSARY.md` says so, and, as one reader put it, "with ai agents everything is [context](https://www.aihero.dev/ai-coding-dictionary/context)". If your repo still has a `CONTEXT.md`, re-run `/setup-matt-pocock-skills`: it offers to `git mv` the file and update `docs/agents/domain.md`. Every skill in the set looks for `GLOSSARY.md`, so keeping the old name means patching all of them.
+It was `CONTEXT.md` (and `CONTEXT-MAP.md`) until 1.3.0. The file is a glossary and nothing else, so `GLOSSARY.md` says so, and, as one reader put it, "with ai agents everything is [context](https://www.aihero.dev/ai-coding-dictionary/context)". If your repo still has a `CONTEXT.md`, re-run `/setup-matt-pocock-skills`: it offers to `git mv` the file and update `.agents/docs/domain.md`. Every skill in the set looks for `GLOSSARY.md`, so keeping the old name means patching all of them.
 
 **Where did `/ubiquitous-language` go?**
 It was removed, and it was not deprecated. Its job moved into `domain-modeling`, which maintains the whole model continuously rather than dumping a glossary out of one conversation. Vocabulary enforcement now matters more, not less. It runs underneath grilling, triage and mapping rather than as a separate pass you have to remember.

@@ -1,8 +1,8 @@
 ## What it does
 
-`setup-matt-pocock-skills` answers three questions about one repo: where issues live, what the triage labels are called, and where the domain docs sit. It records the answers as markdown files under `docs/agents/`.
+`setup-matt-pocock-skills` answers four questions about one repo: where issues live, what the triage labels are called, where the domain docs sit, and which model each subagent role runs on. It records the answers as markdown files under `.agents/docs/`.
 
-Those files are the only thing that varies between repos. The skills themselves are identical everywhere. They read `docs/agents/issue-tracker.md` at run time and do what it says. That is why the set is not tied to GitHub, and why you never edit a skill file to point it at another tracker. Invoking it with "link the skills to a custom issue tracker" works with anything you can connect to programmatically, with no changes to the skills.
+Those files are the only thing that varies between repos. The skills themselves are identical everywhere. They read `.agents/docs/issue-tracker.md` at run time and do what it says. That is why the set is not tied to GitHub, and why you never edit a skill file to point it at another tracker. Invoking it with "link the skills to a custom issue tracker" works with anything you can connect to programmatically, with no changes to the skills.
 
 It is a prompt-driven skill, not a deterministic script. It reads your `git remote`, `CLAUDE.md` and `GLOSSARY.md`, proposes what it found, and waits for you to confirm before it writes anything.
 
@@ -18,14 +18,15 @@ It writes into the repo you run it in:
 
 | It writes | Where |
 | --- | --- |
-| `issue-tracker.md` | `docs/agents/` |
-| `domain.md` | `docs/agents/` |
-| `triage-labels.md` | `docs/agents/`, only when the `triage` skill is installed |
+| `issue-tracker.md` | `.agents/docs/` |
+| `domain.md` | `.agents/docs/` |
+| `models.md` | `.agents/docs/`, unless one already exists |
+| `triage-labels.md` | `.agents/docs/`, only when the `triage` skill is installed |
 | An `## Agent skills` block | whichever of `CLAUDE.md` or `AGENTS.md` already exists |
 
 You commit all of it as markdown. There is no user-level or global mode. The config lives in the repo, so every repo gets its own copy.
 
-## The three decisions
+## The four decisions
 
 It starts each section with the recommended answer, and skips any question its exploration already answered. Most runs need only two confirmations.
 
@@ -33,7 +34,8 @@ It starts each section with the recommended answer, and skips any question its e
 | --- | --- | --- |
 | **Issue tracker** | the one matching your `git remote` | always, because this is the one real choice |
 | **Triage labels** | keep the five canonical names (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`) | only if the `triage` skill is installed |
-| **Domain docs** | single-context: one `GLOSSARY.md` plus `docs/adr/` at the root | only if it spots monorepo signals, and then it offers a multi-context `GLOSSARY-MAP.md` |
+| **Domain docs** | single-context: one `.agents/docs/GLOSSARY.md` plus `.agents/docs/adr/` | only if it spots monorepo signals, and then it offers a multi-context `GLOSSARY-MAP.md` |
+| **Model routing** | the seed: fixed roles (exploration, merger, reviewers) on a set model, implementers on a tier picked by what their ticket touches | never; it writes the seed, and keeps an existing `models.md` untouched |
 
 The tracker options:
 
@@ -41,22 +43,22 @@ The tracker options:
 | --- | --- | --- |
 | **GitHub** | the repo's GitHub Issues | the `gh` CLI |
 | **GitLab** | the repo's GitLab Issues | the `glab` CLI |
-| **Local markdown** | files under `.scratch/<feature>/` in this repo | nothing, not even a remote |
+| **Local markdown** | files under `.agents/docs/scratch/<feature>/` in this repo | nothing, not even a remote |
 | **Other** | wherever you say | one paragraph from you describing the workflow |
 
 The first three ship as templates in the skill and work out of the box. Local markdown is a full option, not a fallback. The skill supports a solo project with no remote. One caveat: don't use local markdown if you use GitHub. They are alternatives, so pick one.
 
-"Other" is a full option too. It is how Jira, Linear, Azure DevOps and Beads all work. You describe the workflow, the skill records your prose in `docs/agents/issue-tracker.md`, and the downstream skills follow the prose. Users have already built this: a Jira-over-[MCP](https://www.aihero.dev/ai-coding-dictionary/mcp) variant, a Gitea CLI shaped like `gh`, a hand-built local dashboard.
+"Other" is a full option too. It is how Jira, Linear, Azure DevOps and Beads all work. You describe the workflow, the skill records your prose in `.agents/docs/issue-tracker.md`, and the downstream skills follow the prose. Users have already built this: a Jira-over-[MCP](https://www.aihero.dev/ai-coding-dictionary/mcp) variant, a Gitea CLI shaped like `gh`, a hand-built local dashboard.
 
 ## Common questions
 
 **Do I have to use GitHub?**
 
-No. GitHub, GitLab and local markdown under `.scratch/` all ship as ready-made templates, and anything else works through the "other" path. This is the most-repeated question, in roughly these words: *"hard locked to github"*, *"can I use GitLab / Jira"*, *"what about Azure DevOps"*. The answer is always the same: setup chooses the tracker, not the skill.
+No. GitHub, GitLab and local markdown under `.agents/docs/scratch/` all ship as ready-made templates, and anything else works through the "other" path. This is the most-repeated question, in roughly these words: *"hard locked to github"*, *"can I use GitLab / Jira"*, *"what about Azure DevOps"*. The answer is always the same: setup chooses the tracker, not the skill.
 
 **Do I need to re-run it after updating the skills?**
 
-The direct answer after v1.1 was yes. The skill's own closing message is softer. It tells you to re-run only to switch trackers or start over. Both are defensible. The seed templates change between versions, so a `docs/agents/issue-tracker.md` from an older release can go out of date against the skills that now read it. If a downstream skill does something different from what the docs describe, re-run setup. It is cheap.
+The direct answer after v1.1 was yes. The skill's own closing message is softer. It tells you to re-run only to switch trackers or start over. Both are defensible. The seed templates change between versions, so a `.agents/docs/issue-tracker.md` from an older release can go out of date against the skills that now read it. If a downstream skill does something different from what the docs describe, re-run setup. It is cheap.
 
 **It wrote to `CLAUDE.md`, but I'm on Codex.**
 
@@ -64,18 +66,18 @@ This is a known gap, and still open. The file-selection rule is "edit `CLAUDE.md
 
 **It didn't create my triage labels.**
 
-It doesn't. `docs/agents/triage-labels.md` is a *mapping*: it tells `/triage` which strings in your tracker correspond to the five canonical roles. It does not run `gh label create`. On a fresh GitHub repo the labels do not exist yet, and users have filed this as a bug more than once. Two consequences:
+It doesn't. `.agents/docs/triage-labels.md` is a *mapping*: it tells `/triage` which strings in your tracker correspond to the five canonical roles. It does not run `gh label create`. On a fresh GitHub repo the labels do not exist yet, and users have filed this as a bug more than once. Two consequences:
 
 - If your tracker already uses the canonical names, the mapping is an identity table and there is nothing to configure. That is the intended common case, not a missing step.
 - This skill does not create [wayfinder](https://aihero.dev/skills-wayfinder)'s `wayfinder:map` and `wayfinder:<type>` labels either, and `gh issue create --label <missing>` fails instead of creating the label. Create them by hand before the first wayfinder run on a GitHub repo.
 
 **Can I configure the other skills' behaviour here ([grilling](https://www.aihero.dev/ai-coding-dictionary/grilling) cadence, question format, tone)?**
 
-No. It configures three things: tracker, labels, doc layout. Users have asked to make it the place for per-user preferences. The answer is that skills stay opinionated and take no per-user config. Preferences belong in your `CLAUDE.md` as plain instructions, which every skill already reads.
+No. It configures four things: tracker, labels, doc layout, model routing. Users have asked to make it the place for per-user preferences. The answer is that skills stay opinionated and take no per-user config. Preferences belong in your `CLAUDE.md` as plain instructions, which every skill already reads.
 
 **Can I keep the config in `~/.claude` instead of committing it to every repo?**
 
-Not today. A user who runs the skills across many repos has an open request for this, but no user-level mode exists. Every repo carries its own `docs/agents/`.
+Not today. A user who runs the skills across many repos has an open request for this, but no user-level mode exists. Every repo carries its own `.agents/docs/`.
 
 **Isn't it strange to have a skill that configures the other skills?**
 
@@ -83,7 +85,7 @@ One long-standing complaint says yes, in these words: *"having a skill to set up
 
 ## It's working if
 
-- `docs/agents/issue-tracker.md` and `docs/agents/domain.md` exist, plus `triage-labels.md` if `triage` is installed.
+- `.agents/docs/issue-tracker.md`, `.agents/docs/domain.md` and `.agents/docs/models.md` exist, plus `triage-labels.md` if `triage` is installed.
 - An `## Agent skills` section appears in the instruction file your harness reads, with a one-line summary pointing at each of those files.
 - The tracker it proposed matches the remote you use, and the label strings match labels that exist in your tracker.
 - Afterwards, `/to-tickets` publishes without asking you where issues live, and `/triage` applies labels rather than inventing them.

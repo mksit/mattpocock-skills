@@ -18,8 +18,10 @@ You invoke this by typing `/implement-spec`, and the agent won't reach for it on
 ## Prerequisites
 
 - **An issue tracker.** The skill reads the tickets from, and resolves them on, the tracker [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) configured. If none has been configured, it stops and tells you to run that first rather than guessing.
+- **Model routing**, optional. With `.agents/docs/models.md` from [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills), each subagent runs on its role's model, and each implementer on the tier its ticket touches: a docs ticket on a cheap model, a concurrency bug on a strong one. Without it, every subagent runs on the orchestrator's model.
 - **Tickets with blocking edges**, as [to-tickets](https://aihero.dev/skills-to-tickets) writes them. Without edges the graph is flat and every ticket starts at once.
 - **A [harness](https://www.aihero.dev/ai-coding-dictionary/harness) that runs subagents in the background and gives each one a git worktree.** The skill exists to run tickets at the same time, so on a harness that runs subagents one at a time, it is only a slower `implement`.
+- **The plugin's role agents**, `analyst` (read-only) and `implementer` (builds and merges), where the harness supports plugin agents. They carry the standing rules (worktree, `tdd`, no push, the report format), so each brief carries only pointers. Elsewhere the skill falls back to general-purpose subagents with the same briefs.
 
 ## The integration branch
 
@@ -74,6 +76,7 @@ A worktree holds only what git tracks. Tests that read gitignored fixtures, loca
 - Every ticket's trace shows `tdd` running, with a failing test before the code.
 - Merges into the integration branch are fast-forwards, not conflict resolutions.
 - The run ends on one branch with every ticket resolved, and a PR only if your tracker wanted one.
+- With model routing set up, each dispatch names the model of its role or tier, and an implementer that failed twice comes back one tier higher.
 
 ## Where it fits
 
