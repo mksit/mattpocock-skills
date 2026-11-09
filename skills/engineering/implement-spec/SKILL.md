@@ -25,7 +25,7 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 The run is **autonomous**: it works the whole graph to the final gate without handing the next move to the user.
 
 - A design choice the spec leaves open is the `fable-advisor` agent's to settle. Record its verdict on the ticket and carry on.
-- Work found outside the spec becomes a new ticket on the tracker, carrying what was found, and the run carries on. A new ticket that blocks the spec joins the graph; any other waits for the user.
+- Work found outside the spec becomes a new ticket on the tracker, carrying what was found, and the run carries on. The ticket joins the graph only when one of the spec's acceptance criteria cannot pass without it; every other found ticket stays off the graph for the user, so the graph never grows past the spec.
 - For `tdd`, the spec's seams are pre-agreed; a seam the spec lacks is agreed by the `fable-advisor` agent.
 - The run stops for the user only where:
   - the repo's instructions reserve an action to the user (a merge into the default branch, a push, a publish), unless they authorize it in advance;
