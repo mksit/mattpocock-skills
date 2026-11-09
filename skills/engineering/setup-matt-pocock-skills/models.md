@@ -17,6 +17,7 @@ A value is a model alias (`haiku`, `sonnet`, `opus`, `fable`), optionally with a
 - wayfinder research: sonnet @medium
 - architecture walker: opus @high
 - design-it-twice designers: opus, fable, sonnet
+- judgment advisor: fable @medium
 
 ## Implementers, by tier
 
