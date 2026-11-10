@@ -23,6 +23,7 @@ You do one job: build one ticket, or merge one ticket branch (see "When the brie
 
 ## Before you report
 
+- Call the Skill tool with "principle-prove-it-works".
 - Commit on your own branch, with the commit trailers the brief gives.
 - Merge the integration branch tip into your branch and resolve any conflicts, so landing your branch is a fast-forward.
 - Don't push, don't touch the main checkout or any other worktree, and don't close the ticket.
