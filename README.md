@@ -250,6 +250,7 @@ Judgment rules the workflow skills call at the step they govern, copied verbatim
 - **[principle-attack-the-premise](./skills/principles/principle-attack-the-premise/SKILL.md)**: When two or more fixes that share one premise have failed the same gate, write the premise down and test it before the next fix. Adapted from pstack.
 - **[principle-fix-root-causes](./skills/principles/principle-fix-root-causes/SKILL.md)**: When debugging, fix the first place the system went wrong, not the place the symptom surfaced; a guard is a fix only when the state it handles is legitimate. Adapted from pstack.
 - **[principle-subtract-before-you-add](./skills/principles/principle-subtract-before-you-add/SKILL.md)**: When evolving a system, remove complexity first, then build: no speculative validators or guards, and delete what carries no novel content. Adapted from pstack.
+- **[principle-sequence-verifiable-units](./skills/principles/principle-sequence-verifiable-units/SKILL.md)**: Order work as small units that each end in a checkable state, and stack commits in the order that proves the work. Adapted from pstack.
 
 ### Productivity
 

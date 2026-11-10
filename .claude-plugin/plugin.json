@@ -39,6 +39,7 @@
     "./skills/principles/principle-attack-the-premise",
     "./skills/principles/principle-fix-root-causes",
     "./skills/principles/principle-subtract-before-you-add",
+    "./skills/principles/principle-sequence-verifiable-units",
     "./skills/engineering/code-review",
     "./skills/engineering/pr",
     "./skills/engineering/retro",
