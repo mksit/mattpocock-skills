@@ -43,6 +43,7 @@
     "./skills/principles/principle-separate-before-serializing-shared-state",
     "./skills/principles/principle-explain-the-number",
     "./skills/principles/principle-laziness-protocol",
+    "./skills/principles/principle-migrate-callers-then-delete-legacy-apis",
     "./skills/engineering/code-review",
     "./skills/engineering/pr",
     "./skills/engineering/retro",

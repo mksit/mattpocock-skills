@@ -1,0 +1,3 @@
+interface:
+  display_name: "Migrate Callers Then Delete Legacy APIs"
+  short_description: "Migrate callers and delete the old API in one wave"

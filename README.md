@@ -254,6 +254,7 @@ Judgment rules the workflow skills call at the step they govern, copied verbatim
 - **[principle-separate-before-serializing-shared-state](./skills/principles/principle-separate-before-serializing-shared-state/SKILL.md)**: When concurrent actors might share mutable state, eliminate the shared write target first; serialize structurally only when one writer is a real invariant. Adapted from pstack.
 - **[principle-explain-the-number](./skills/principles/principle-explain-the-number/SKILL.md)**: Before you measure, and before you trust or report a measured number, name what limits it and rule out what else it could be measuring. Adapted from pstack.
 - **[principle-laziness-protocol](./skills/principles/principle-laziness-protocol/SKILL.md)**: Bias toward deletion and the smallest change that solves the problem: consolidate each decision behind one source of truth, and minimize the diff. Adapted from pstack.
+- **[principle-migrate-callers-then-delete-legacy-apis](./skills/principles/principle-migrate-callers-then-delete-legacy-apis/SKILL.md)**: When a new internal API replaces an old one, migrate every caller and delete the old API in the same wave instead of keeping a compatibility layer. Adapted from pstack.
 
 ### Productivity
 
