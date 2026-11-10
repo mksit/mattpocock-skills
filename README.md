@@ -251,6 +251,7 @@ Judgment rules the workflow skills call at the step they govern, copied verbatim
 - **[principle-fix-root-causes](./skills/principles/principle-fix-root-causes/SKILL.md)**: When debugging, fix the first place the system went wrong, not the place the symptom surfaced; a guard is a fix only when the state it handles is legitimate. Adapted from pstack.
 - **[principle-subtract-before-you-add](./skills/principles/principle-subtract-before-you-add/SKILL.md)**: When evolving a system, remove complexity first, then build: no speculative validators or guards, and delete what carries no novel content. Adapted from pstack.
 - **[principle-sequence-verifiable-units](./skills/principles/principle-sequence-verifiable-units/SKILL.md)**: Order work as small units that each end in a checkable state, and stack commits in the order that proves the work. Adapted from pstack.
+- **[principle-separate-before-serializing-shared-state](./skills/principles/principle-separate-before-serializing-shared-state/SKILL.md)**: When concurrent actors might share mutable state, eliminate the shared write target first; serialize structurally only when one writer is a real invariant. Adapted from pstack.
 
 ### Productivity
 
