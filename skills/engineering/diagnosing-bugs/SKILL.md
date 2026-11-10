@@ -125,7 +125,7 @@ If a correct seam exists:
 
 1. Turn the minimised repro into a failing test at that seam.
 2. Watch it fail. If you forced the red by mutating code or a fixture, `diff` against a pristine copy to prove the mutation landed before you trust it.
-3. Apply the fix. If the fix does not turn the loop green, call the Skill tool with "principle-attack-the-premise" before the next fix.
+3. Before you place the fix, call the Skill tool with "principle-fix-root-causes". Apply the fix. If the fix does not turn the loop green, call the Skill tool with "principle-attack-the-premise" before the next fix.
 4. Watch it pass.
 5. Re-run the Phase 1 feedback loop against the original (un-minimised) scenario.
 
