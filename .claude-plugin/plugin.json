@@ -48,6 +48,7 @@
     "./skills/principles/principle-make-operations-idempotent",
     "./skills/principles/principle-model-the-domain",
     "./skills/principles/principle-build-the-lever",
+    "./skills/principles/principle-encode-lessons-in-structure",
     "./skills/engineering/code-review",
     "./skills/engineering/pr",
     "./skills/engineering/retro",

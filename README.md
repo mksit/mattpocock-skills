@@ -259,6 +259,7 @@ Judgment rules the workflow skills call at the step they govern, copied verbatim
 - **[principle-make-operations-idempotent](./skills/principles/principle-make-operations-idempotent/SKILL.md)**: Design commands, lifecycle steps and processing loops to converge to the same end state however many times they run and wherever the last run stopped. Adapted from pstack.
 - **[principle-model-the-domain](./skills/principles/principle-model-the-domain/SKILL.md)**: Encode the real domain in a data structure (a state machine, a typed model, a lookup table) instead of scattering it across conditionals. Adapted from pstack.
 - **[principle-build-the-lever](./skills/principles/principle-build-the-lever/SKILL.md)**: When the work is not trivial, build the codemod, script, generator or delegate skill that does or proves it, instead of doing it by hand. Adapted from pstack.
+- **[principle-encode-lessons-in-structure](./skills/principles/principle-encode-lessons-in-structure/SKILL.md)**: When you write the same instruction a second time, or see a recurring correction, encode the rule as a lint, flag, runtime check or script instead of more text. Adapted from pstack.
 
 ### Productivity
 
