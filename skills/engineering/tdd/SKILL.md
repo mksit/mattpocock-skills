@@ -33,7 +33,7 @@ When the shape of that interface is itself in question (how deep the module is, 
 
 ## Rules of the loop
 
-- **Red before green.** Write the failing test first, then only enough code to pass it. Call the Skill tool with "principle-test-behavior-not-implementation" to judge each test you write. Call it again with "principle-prove-it-works" to read each red. Don't anticipate future tests or add speculative features.
+- **Red before green.** Write the failing test first, then only enough code to pass it. Call the Skill tool with "principle-prove-it-works" to read each red. Don't anticipate future tests or add speculative features.
 - **Measured values.** When a test asserts a measured value (time, memory, throughput), call the Skill tool with "principle-explain-the-number".
 - **One slice at a time.** One seam, one test, one minimal implementation per cycle.
 - **Refactoring is not part of the loop.** It belongs to the review stage (see the `code-review` skill), not the red → green implementation cycle.

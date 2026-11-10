@@ -46,7 +46,6 @@
     "./skills/principles/principle-migrate-callers-then-delete-legacy-apis",
     "./skills/principles/principle-boundary-discipline",
     "./skills/principles/principle-make-operations-idempotent",
-    "./skills/principles/principle-test-behavior-not-implementation",
     "./skills/principles/principle-model-the-domain",
     "./skills/engineering/code-review",
     "./skills/engineering/pr",
