@@ -24,10 +24,10 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 Work **autonomously**: take the whole graph through to the final gate without handing the next move back to the user. Call the Skill tool with "principle-work-autonomously"; it settles open choices and says when to stop. On top of it:
 
-- Add a found ticket to the graph only if one of the spec's acceptance criteria can't pass without it. Leave every other found ticket off the graph for the user. The graph never grows past the spec.
+- Found work joins the graph only if one of the spec's acceptance criteria can't pass without it. Any other found work goes in the closing report for the user, unless they have allowed work outside the spec. The graph never grows past the spec.
 - For `tdd`, treat the spec's seams as pre-agreed. When the spec is missing a seam, have the advisor agree it.
 - Also stop for the user when a `hard` implementer has failed its ticket twice and the advisor can't name the cause.
-- In the closing report, list every design decision (yours and the advisor's) and every ticket you opened, so the user can review them in one pass.
+- In the closing report, list every design decision (yours and the advisor's), every ticket you opened, and the found work you left, so the user can review them in one pass.
 
 ## Steps
 
