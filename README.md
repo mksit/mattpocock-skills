@@ -236,12 +236,19 @@ Skills I use daily for code work.
 - **[tdd](./skills/engineering/tdd/SKILL.md)**: Test-driven development with a red-green-refactor loop. Builds features or fixes bugs one vertical slice at a time.
 - **[domain-modeling](./skills/engineering/domain-modeling/SKILL.md)**: Actively build and sharpen a project's domain model: challenge terms against the glossary, stress-test with edge-case scenarios, and update `GLOSSARY.md` and ADRs inline.
 - **[codebase-design](./skills/engineering/codebase-design/SKILL.md)**: Shared discipline and vocabulary for designing deep modules: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface.
-- **[principle-prove-it-works](./skills/engineering/principle-prove-it-works/SKILL.md)**: Verify every task output against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, a self-report, or "it compiles". Adapted from pstack.
-- **[principle-attack-the-premise](./skills/engineering/principle-attack-the-premise/SKILL.md)**: When two or more fixes that share one premise have failed the same gate, write the premise down and test it before the next fix. Adapted from pstack.
-- **[principle-fix-root-causes](./skills/engineering/principle-fix-root-causes/SKILL.md)**: When debugging, fix the first place the system went wrong, not the place the symptom surfaced; a guard is a fix only when the state it handles is legitimate. Adapted from pstack.
 - **[code-review](./skills/engineering/code-review/SKILL.md)**: Two-axis review of the diff since a fixed point: **Standards** (does it follow the repo's coding standards, plus a Fowler smell baseline?) and **Spec** (does it faithfully implement the originating issue/spec?), run as parallel sub-agents so neither pollutes the other.
 - **[pr](./skills/engineering/pr/SKILL.md)**: The shape a pull request body should take: a summary as the smallest visual that makes the change clear, before/after evidence that it works, and a merge-danger call (one-way or two-way door, plus blast radius).
 - **[wizard](./skills/engineering/wizard/SKILL.md)**: Generate an interactive bash wizard that walks a human through steps only they can perform: provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover.
+
+### Principles
+
+Judgment rules the workflow skills call at the step they govern, copied verbatim from [pstack](https://github.com/michael-denyer/pstack-claude).
+
+**Model-invoked**
+
+- **[principle-prove-it-works](./skills/principles/principle-prove-it-works/SKILL.md)**: Verify every task output against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, a self-report, or "it compiles". Adapted from pstack.
+- **[principle-attack-the-premise](./skills/principles/principle-attack-the-premise/SKILL.md)**: When two or more fixes that share one premise have failed the same gate, write the premise down and test it before the next fix. Adapted from pstack.
+- **[principle-fix-root-causes](./skills/principles/principle-fix-root-causes/SKILL.md)**: When debugging, fix the first place the system went wrong, not the place the symptom surfaced; a guard is a fix only when the state it handles is legitimate. Adapted from pstack.
 
 ### Productivity
 
