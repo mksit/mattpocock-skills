@@ -26,7 +26,7 @@ Work **autonomously**: take the whole graph through to the final gate without ha
 
 **Why:** Since code changes are reversible and reviewable, a wrong decision usually costs less than blocking.
 
-- When a design choice is open, settle it yourself, even if the user is watching. If you already have a recommendation, take it, and give the reason in one line. If you don't, have the advisor settle it. Record the decision on the ticket and carry on.
+- When a design choice is open, settle it yourself, even if the user is watching. To form a recommendation, call the Skill tool with "principle-experience-first". If you already have a recommendation, take it, and give the reason in one line. If you don't, have the advisor settle it. Record the decision on the ticket and carry on.
 - When a subagent hands back open choices instead of finished work, settle them the same way, and resume it with the decisions.
 - When you find work outside the spec, open a new ticket on the tracker describing what you found, and carry on.
 - Add a found ticket to the graph only if one of the spec's acceptance criteria can't pass without it. Leave every other found ticket off the graph for the user. The graph never grows past the spec.

@@ -52,6 +52,7 @@
     "./skills/principles/principle-encode-lessons-in-structure",
     "./skills/principles/principle-redesign-from-first-principles",
     "./skills/principles/principle-type-system-discipline",
+    "./skills/principles/principle-experience-first",
     "./skills/engineering/code-review",
     "./skills/engineering/pr",
     "./skills/engineering/retro",

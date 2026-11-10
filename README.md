@@ -263,6 +263,7 @@ Judgment rules the workflow skills call at the step they govern, copied verbatim
 - **[principle-encode-lessons-in-structure](./skills/principles/principle-encode-lessons-in-structure/SKILL.md)**: When you write the same instruction a second time, or see a recurring correction, encode the rule as a lint, flag, runtime check or script instead of more text. Adapted from pstack.
 - **[principle-redesign-from-first-principles](./skills/principles/principle-redesign-from-first-principles/SKILL.md)**: When integrating a new requirement, redesign as if it had been a foundational assumption, and propagate the change through every reference. Adapted from pstack.
 - **[principle-type-system-discipline](./skills/principles/principle-type-system-discipline/SKILL.md)**: Make the compiler reject impossible states: brand semantic primitives, parse external data at boundaries, exhaust variants, and derive types from authoritative schemas. Adapted from pstack.
+- **[principle-experience-first](./skills/principles/principle-experience-first/SKILL.md)**: When implementation convenience conflicts with the experience of whoever consumes the work, choose their experience. Adapted from pstack.
 
 ### Productivity
 
