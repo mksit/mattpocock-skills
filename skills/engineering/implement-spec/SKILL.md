@@ -22,19 +22,11 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 ## Autonomy
 
-Work **autonomously**: take the whole graph through to the final gate without handing the next move back to the user.
+Work **autonomously**: take the whole graph through to the final gate without handing the next move back to the user. Call the Skill tool with "principle-work-autonomously"; it settles open choices and says when to stop. On top of it:
 
-**Why:** Since code changes are reversible and reviewable, a wrong decision usually costs less than blocking.
-
-- When a design choice is open, settle it yourself, even if the user is watching. To form a recommendation, call the Skill tool with "principle-experience-first". If you already have a recommendation, take it, and give the reason in one line. If you don't, have the advisor settle it. Record the decision on the ticket and carry on.
-- When a subagent hands back open choices instead of finished work, settle them the same way, and resume it with the decisions.
-- When you find work outside the spec, open a new ticket on the tracker describing what you found, and carry on.
 - Add a found ticket to the graph only if one of the spec's acceptance criteria can't pass without it. Leave every other found ticket off the graph for the user. The graph never grows past the spec.
 - For `tdd`, treat the spec's seams as pre-agreed. When the spec is missing a seam, have the advisor agree it.
-- Stop for the user only when:
-  - the repo's instructions reserve an action to the user (a merge into the default branch, a push, a publish), and they haven't authorized it in advance
-  - the final gate says **Rethink**
-  - a `hard` implementer has failed its ticket twice, and the advisor can't name the cause
+- Also stop for the user when a `hard` implementer has failed its ticket twice and the advisor can't name the cause.
 - In the closing report, list every design decision (yours and the advisor's) and every ticket you opened, so the user can review them in one pass.
 
 ## Steps

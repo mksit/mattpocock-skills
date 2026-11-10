@@ -45,7 +45,7 @@ Pick the tier from what the ticket is:
 - **standard**: a feature or refactor with a clear spec and an existing pattern to follow, including multi-file mechanical edits.
 - **hard**: a wrong change can pass its tests silently, or the cause is unknown. A bug fix with no known root cause, performance work, concurrency, the build system, data or history migrations.
 
-An open design choice doesn't make a ticket a tier of its own. It's settled before dispatch, as `implement-spec`'s **Autonomy** says. Then the ticket takes the tier of what it touches.
+An open design choice doesn't make a ticket a tier of its own. It's settled before dispatch, as `principle-work-autonomously` says. Then the ticket takes the tier of what it touches.
 
 ## Routing rules
 

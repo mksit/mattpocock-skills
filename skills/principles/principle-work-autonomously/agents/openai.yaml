@@ -1,0 +1,3 @@
+interface:
+  display_name: "Work Autonomously"
+  short_description: "Decide, act and report; stop only for actions reserved to the user"

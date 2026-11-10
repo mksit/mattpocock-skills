@@ -7,6 +7,8 @@ description: Diagnosis loop for hard bugs and performance regressions. Use when 
 
 A discipline for hard bugs. Skip phases only when explicitly justified.
 
+Run the loop **autonomously**: call the Skill tool with "principle-work-autonomously". A finding that leaves the cause open is the next hypothesis or probe; an open fix choice is yours to settle.
+
 When exploring the codebase, read `.agents/docs/GLOSSARY.md` (if it exists) to get a clear mental model of the relevant modules, and check ADRs in the area you're touching.
 
 ## Redact
