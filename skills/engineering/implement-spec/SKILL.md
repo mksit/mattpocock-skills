@@ -24,8 +24,8 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 Work **autonomously**: take the whole graph through to the final gate without handing the next move back to the user.
 
-- A design choice is yours to settle, even when the user is in the conversation. If you already have a recommendation, take it and state the reason in one line. Otherwise have the advisor settle it. Record the decision on the ticket and carry on.
-- When a subagent hands back open choices instead of finished work, settle them the same way and resume it with the decisions.
+- When a design choice is open, settle it yourself, even if the user is watching. If you already have a recommendation, take it, and give the reason in one line. If you don't, have the advisor settle it. Record the decision on the ticket and carry on.
+- When a subagent hands back open choices instead of finished work, settle them the same way, and resume it with the decisions.
 - When you find work outside the spec, open a new ticket on the tracker describing what you found, and carry on.
 - Add a found ticket to the graph only if one of the spec's acceptance criteria can't pass without it. Leave every other found ticket off the graph for the user. The graph never grows past the spec.
 - For `tdd`, treat the spec's seams as pre-agreed. When the spec is missing a seam, have the advisor agree it.
@@ -33,11 +33,11 @@ Work **autonomously**: take the whole graph through to the final gate without ha
   - the repo's instructions reserve an action to the user (a merge into the default branch, a push, a publish), and they haven't authorized it in advance
   - the final gate says **Rethink**
   - a `hard` implementer has failed its ticket twice, and the advisor can't name the cause
-- In the closing report, list every verdict the advisor gave and every ticket you opened, so the user can review them in one pass.
+- In the closing report, list every design decision (yours and the advisor's) and every ticket you opened, so the user can review them in one pass.
 
 ## Steps
 
-1. Read the spec and tickets to understand the task graph. If a ticket leaves a design choice open, send it to the advisor first, and record its verdict on the ticket. Give each ticket a tier from the model routing, based on what it touches, not how long it is.
+1. Read the spec and tickets to understand the task graph. If a ticket leaves a design choice open, settle it before dispatch, as **Autonomy** says. Give each ticket a tier from the model routing, based on what it touches, not how long it is.
 
 2. (optional) Use an **exploration subagent** (the `analyst` agent, in the `exploration` role) to conduct any exploration required by the tickets - relevant codebase files or external documentation. Ensure the exploration subagent can save files - it should save its markdown notes in a directory outside the repo, accessible by all future subagents. This lets **implementer subagents** focus on implementation rather than exploration.
 
