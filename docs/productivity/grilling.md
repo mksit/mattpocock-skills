@@ -1,6 +1,6 @@
 ## What it does
 
-`grilling` is the interview loop that stress-tests a plan, a decision, or an idea before anyone acts on it. It maps the subject as a **design tree**: every decision branches into the decisions that hang off it, and interviews you branch by branch until no assumption stays unstated.
+`grilling` is the interview loop that stress-tests a plan, a decision, or an idea before anyone acts on it. It maps the subject as a **decision tree**: every decision branches into the decisions that hang off it, and interviews you branch by branch until no assumption stays unstated.
 
 It does not ask one question at a time, and it does not ask everything at once. Each **round** asks the whole **frontier**: every decision whose prerequisites are already settled, and nothing else. Two questions never share a round if one depends on the other; a question that hinges on an answer still open belongs to a later round. Your answers settle decisions, the frontier moves outward, and the next round asks what that unblocked. Thirteen questions typically land in about three rounds rather than thirteen.
 
@@ -22,7 +22,7 @@ Typing `/grilling` directly gets you the plain interview and nothing else. Where
 
 The skill rests on three ideas.
 
-The **design tree** is the model of the subject: decisions with decisions hanging off them. The **frontier** is the set of decisions whose prerequisites are all settled: the only questions the agent can ask yet. A **round** is one frontier, asked in full and answered in full.
+The **decision tree** is the model of the subject: decisions with decisions hanging off them. The **frontier** is the set of decisions whose prerequisites are all settled: the only questions the agent can ask yet. A **round** is one frontier, asked in full and answered in full.
 
 Inside a round, every question has a fixed format: numbered and titled behind a `❓`, then the body, then the agent's recommended answer alone on a `➡️` line. This format lets you answer a round by number ("1 yes, 2 the second option, 3 no, here's why") instead of by quoting questions back. The format has one known problem. The recommendation sometimes argues *against* the question as it was worded, so agreeing with the recommendation means answering "no" to the question. When that happens, answer the recommendation and say so.
 
@@ -79,7 +79,8 @@ This is a real bug, still unfixed, and users report it across [harnesses](https:
 - Later rounds ask things the first round could not have asked.
 - It goes and looks facts up (reading files, dispatching a sub-agent) rather than asking you something it could have found out.
 - Research running in the background does not stall the round; only the questions that depend on it wait.
-- A question that would be expensive to get wrong comes with `fable-advisor`'s recommendation, not just the session's own guess.
+- It never asks or answers a question about shape (a module, an interface, a data shape, a seam). It writes each one down, and when the session ends it hands them, with the settled decisions, to [architect](../engineering/architect.md).
+- Any other question that would be expensive to get wrong comes with `fable-advisor`'s recommendation, not just the session's own guess.
 - Before it calls the tree done, `fable-advisor` reads every settled decision, and anything it flags comes back as a new question.
 - It stops at the end and asks you to confirm the understanding is shared, instead of starting work.
 - Question count stays high while round count stays low.

@@ -35,6 +35,7 @@
     "./skills/engineering/research",
     "./skills/engineering/domain-modeling",
     "./skills/engineering/codebase-design",
+    "./skills/engineering/architect",
     "./skills/principles/principle-prove-it-works",
     "./skills/principles/principle-attack-the-premise",
     "./skills/principles/principle-fix-root-causes",
