@@ -44,6 +44,7 @@
     "./skills/principles/principle-explain-the-number",
     "./skills/principles/principle-laziness-protocol",
     "./skills/principles/principle-migrate-callers-then-delete-legacy-apis",
+    "./skills/principles/principle-boundary-discipline",
     "./skills/engineering/code-review",
     "./skills/engineering/pr",
     "./skills/engineering/retro",
