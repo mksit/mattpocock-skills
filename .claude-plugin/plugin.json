@@ -41,6 +41,7 @@
     "./skills/principles/principle-subtract-before-you-add",
     "./skills/principles/principle-sequence-verifiable-units",
     "./skills/principles/principle-separate-before-serializing-shared-state",
+    "./skills/principles/principle-explain-the-number",
     "./skills/engineering/code-review",
     "./skills/engineering/pr",
     "./skills/engineering/retro",
