@@ -24,6 +24,8 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 Work **autonomously**: take the whole graph through to the final gate without handing the next move back to the user.
 
+**Why:** Since code changes are reversible and reviewable, a wrong decision usually costs less than blocking.
+
 - When a design choice is open, settle it yourself, even if the user is watching. If you already have a recommendation, take it, and give the reason in one line. If you don't, have the advisor settle it. Record the decision on the ticket and carry on.
 - When a subagent hands back open choices instead of finished work, settle them the same way, and resume it with the decisions.
 - When you find work outside the spec, open a new ticket on the tracker describing what you found, and carry on.
