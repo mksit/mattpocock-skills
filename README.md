@@ -256,6 +256,7 @@ Judgment rules the workflow skills call at the step they govern, copied verbatim
 - **[principle-laziness-protocol](./skills/principles/principle-laziness-protocol/SKILL.md)**: Bias toward deletion and the smallest change that solves the problem: consolidate each decision behind one source of truth, and minimize the diff. Adapted from pstack.
 - **[principle-migrate-callers-then-delete-legacy-apis](./skills/principles/principle-migrate-callers-then-delete-legacy-apis/SKILL.md)**: When a new internal API replaces an old one, migrate every caller and delete the old API in the same wave instead of keeping a compatibility layer. Adapted from pstack.
 - **[principle-boundary-discipline](./skills/principles/principle-boundary-discipline/SKILL.md)**: Put validation, type narrowing and error handling at system boundaries, trust internal code, and keep business logic in pure functions. Adapted from pstack.
+- **[principle-make-operations-idempotent](./skills/principles/principle-make-operations-idempotent/SKILL.md)**: Design commands, lifecycle steps and processing loops to converge to the same end state however many times they run and wherever the last run stopped. Adapted from pstack.
 
 ### Productivity
 

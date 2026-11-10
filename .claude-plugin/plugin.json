@@ -45,6 +45,7 @@
     "./skills/principles/principle-laziness-protocol",
     "./skills/principles/principle-migrate-callers-then-delete-legacy-apis",
     "./skills/principles/principle-boundary-discipline",
+    "./skills/principles/principle-make-operations-idempotent",
     "./skills/engineering/code-review",
     "./skills/engineering/pr",
     "./skills/engineering/retro",
