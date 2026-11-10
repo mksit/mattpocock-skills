@@ -21,7 +21,7 @@ Red is a colour, not a measurement. A failing check proves the instrument only w
 
 ## Run each check as often as its inputs change
 
-Fast checks run on every head that lands. A slow check (a full install, a source build of a dependency) runs only for a criterion that needs it, and again only when what it verifies changed; a later change that leaves its inputs alone keeps its result. A report names each slow check it skipped, and why.
+Fast checks run on every head that lands. A slow check (a full install, a source build of a dependency) runs only for a criterion that needs it, and again only when what it verifies changed; a later change that leaves its inputs alone keeps its result. A brief to a subagent that runs checks carries this rule, and its report names each slow check it skipped, and why.
 
 ## Script the check when you can
 
