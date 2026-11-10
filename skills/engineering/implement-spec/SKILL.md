@@ -24,7 +24,8 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 Work **autonomously**: take the whole graph through to the final gate without handing the next move back to the user.
 
-- When the spec leaves a design choice open, have the advisor settle it. Record its verdict on the ticket and carry on.
+- A design choice is yours to settle, even when the user is in the conversation. If you already have a recommendation, take it and state the reason in one line. Otherwise have the advisor settle it. Record the decision on the ticket and carry on.
+- When a subagent hands back open choices instead of finished work, settle them the same way and resume it with the decisions.
 - When you find work outside the spec, open a new ticket on the tracker describing what you found, and carry on.
 - Add a found ticket to the graph only if one of the spec's acceptance criteria can't pass without it. Leave every other found ticket off the graph for the user. The graph never grows past the spec.
 - For `tdd`, treat the spec's seams as pre-agreed. When the spec is missing a seam, have the advisor agree it.
