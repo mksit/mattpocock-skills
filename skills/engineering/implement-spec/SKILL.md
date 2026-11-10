@@ -37,7 +37,7 @@ Work **autonomously**: take the whole graph through to the final gate without ha
 
 3. Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.
 
-4. Use a fresh **implementer subagent** (the `implementer` agent) for each ticket, each in its own worktree on its own branch (one writer a worktree; a ticket gets one worktree), running on the model for its ticket's tier. If an implementer fails its ticket twice, call the Skill tool with "principle-attack-the-premise", then re-dispatch it one tier higher. Never retry it at the same tier. If a `hard` one fails twice, wait until the advisor has named the cause before you re-dispatch it. Never run an implementer on Fable. Each implementer subagent:
+4. Use a fresh **implementer subagent** (the `implementer` agent) for each ticket, each in its own worktree on its own branch (see "principle-separate-before-serializing-shared-state"), running on the model for its ticket's tier. If an implementer fails its ticket twice, call the Skill tool with "principle-attack-the-premise", then re-dispatch it one tier higher. Never retry it at the same tier. If a `hard` one fails twice, wait until the advisor has named the cause before you re-dispatch it. Never run an implementer on Fable. Each implementer subagent:
    - confirms its worktree is based on the integration branch before starting, and resets onto it if not;
    - calls the Skill tool with `tdd` to build the ticket;
    - merges the integration branch tip into its own branch before reporting done
