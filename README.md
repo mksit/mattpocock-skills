@@ -243,7 +243,7 @@ Skills I use daily for code work.
 
 ### Principles
 
-Judgment rules the workflow skills call at the step they govern, copied verbatim from [pstack](https://github.com/michael-denyer/pstack-claude).
+Judgment rules the workflow skills call at the step they govern, adapted from [pstack](https://github.com/michael-denyer/pstack-claude).
 
 **Model-invoked**
 

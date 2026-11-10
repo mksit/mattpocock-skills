@@ -1,6 +1,6 @@
 # Principles
 
-Judgment rules the workflow skills call at the step they govern. Each is copied verbatim from [pstack](https://github.com/michael-denyer/pstack-claude) (MIT, Copyright (c) 2026 Lauren Tan).
+Judgment rules the workflow skills call at the step they govern. Each is adapted from [pstack](https://github.com/michael-denyer/pstack-claude); `THIRD_PARTY_NOTICES.md` lists the changes.
 
 ## Model-invoked
 
