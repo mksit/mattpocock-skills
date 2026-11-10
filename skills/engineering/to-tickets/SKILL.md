@@ -31,7 +31,7 @@ Break the work into **tracer bullet** tickets.
 - Each slice cuts a narrow but COMPLETE path through every layer (schema, API, UI, tests): vertical, NOT a horizontal slice of one layer
 - A completed slice is demoable or verifiable on its own
 - Each slice is sized to fit in a single fresh context window
-- Any prefactoring should be done first
+- Any prefactoring should be done first. To find it, call the Skill tool with "principle-subtract-before-you-add": each subtraction is its own ticket and blocks the tickets that add, except in a wide refactor, whose subtraction is the contract step
 
 </vertical-slice-rules>
 

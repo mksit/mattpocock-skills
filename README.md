@@ -249,6 +249,7 @@ Judgment rules the workflow skills call at the step they govern, copied verbatim
 - **[principle-prove-it-works](./skills/principles/principle-prove-it-works/SKILL.md)**: Verify every task output against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, a self-report, or "it compiles". Adapted from pstack.
 - **[principle-attack-the-premise](./skills/principles/principle-attack-the-premise/SKILL.md)**: When two or more fixes that share one premise have failed the same gate, write the premise down and test it before the next fix. Adapted from pstack.
 - **[principle-fix-root-causes](./skills/principles/principle-fix-root-causes/SKILL.md)**: When debugging, fix the first place the system went wrong, not the place the symptom surfaced; a guard is a fix only when the state it handles is legitimate. Adapted from pstack.
+- **[principle-subtract-before-you-add](./skills/principles/principle-subtract-before-you-add/SKILL.md)**: When evolving a system, remove complexity first, then build: no speculative validators or guards, and delete what carries no novel content. Adapted from pstack.
 
 ### Productivity
 

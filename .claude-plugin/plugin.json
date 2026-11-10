@@ -38,6 +38,7 @@
     "./skills/principles/principle-prove-it-works",
     "./skills/principles/principle-attack-the-premise",
     "./skills/principles/principle-fix-root-causes",
+    "./skills/principles/principle-subtract-before-you-add",
     "./skills/engineering/code-review",
     "./skills/engineering/pr",
     "./skills/engineering/retro",

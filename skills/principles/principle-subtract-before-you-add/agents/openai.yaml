@@ -1,0 +1,3 @@
+interface:
+  display_name: "Subtract Before You Add"
+  short_description: "Remove complexity first, then build"
