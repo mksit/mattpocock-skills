@@ -32,6 +32,8 @@ Then spawn a sub-agent with a fresh context window to walk the codebase. Don't f
 - Where do tightly-coupled modules leak across their seams?
 - Which parts of the codebase are untested, or hard to test through their current interface?
 
+Have the sub-agent call the Skill tool with "principle-model-the-domain", and note each sign of a skipped domain model it names as friction too.
+
 Apply the **deletion test** to anything you suspect is shallow: would deleting it concentrate complexity, or just move it? A "yes, concentrates" is the signal you want.
 
 ### 2. Present candidates as an HTML report

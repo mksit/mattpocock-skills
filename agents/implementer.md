@@ -19,6 +19,7 @@ You do one job: build one ticket, or merge one ticket branch (see "When the brie
 - When you hit a bug, call the Skill tool with "principle-fix-root-causes" before you fix it. Instances outside the ticket stay open items.
 - When you add validation or error handling, call the Skill tool with "principle-boundary-discipline".
 - When you write a command, a lifecycle step or a processing loop, call the Skill tool with "principle-make-operations-idempotent".
+- When you write stateful logic, or add one more branch to an if/else chain, call the Skill tool with "principle-model-the-domain". A restructure outside the ticket stays an open item.
 - While you build, call the Skill tool with "principle-subtract-before-you-add". Subtraction outside the ticket stays an open item.
 - Stay inside the ticket. Note anything outside it as an open item. Don't fix it.
 - Use the domain vocabulary in `.agents/docs/GLOSSARY.md`, and respect the ADRs in `.agents/docs/adr/`.
