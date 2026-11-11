@@ -1,0 +1,3 @@
+interface:
+  display_name: "Scope Checks to the Change"
+  short_description: "Run only the checks a change can move; test only what it adds or fixes"

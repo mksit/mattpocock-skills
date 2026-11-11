@@ -19,9 +19,9 @@ Verify the process as well as the outcome. A correct result can rest on a broken
 
 Red is a colour, not a measurement. A failing check proves the instrument only when the failure content is the disagreement you predicted. An exception, an empty collection against a non-empty literal, and a real mismatch all print red, so quote the assertion's diff (`Extra items in the right set`), never the assertion (`assert {...} == {...}`). A convergence probe keys on behavior only the new artifact can produce, never an identity field the old one also emits. A same-SHA restart lets old code report the new commit SHA.
 
-## Run each check as often as its inputs change
+## Run only the checks the change can move
 
-Fast checks run on every head that lands. A slow check (a full install, a source build of a dependency) runs only for a criterion that needs it, and again only when what it verifies changed; a later change that leaves its inputs alone keeps its result. A brief to a subagent that runs checks carries this rule, and its report names each slow check it skipped, and why.
+Which checks a change runs, and which tests it adds, is the subject of "principle-scope-checks-to-the-change": call the Skill tool with it before you choose them.
 
 ## Script the check when you can
 
