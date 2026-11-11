@@ -2,7 +2,7 @@
 
 <!-- Adapted from skills/architect/references/rationale-template.md in pstack (MIT); see THIRD_PARTY_NOTICES.md. -->
 
-The record that `architect` hands back. One page. Use the project's `GLOSSARY.md` terms and the `codebase-design` vocabulary. Replace each italic note with content.
+The record that `to-design` hands back. One page. Use the project's `GLOSSARY.md` terms and the `codebase-design` vocabulary. Replace each italic note with content.
 
 ## Questions
 

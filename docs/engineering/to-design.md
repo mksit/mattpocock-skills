@@ -1,6 +1,6 @@
 ## What it does
 
-`architect` decides the **shape** of a change before anyone writes code: its modules, interfaces, data shapes and seams. It uses the vocabulary of [codebase-design](./codebase-design.md), and it hands back a one-page **design record**. It does not write an implementation and it does not edit code.
+`to-design` decides the **shape** of a change before anyone writes code: its modules, interfaces, data shapes and seams. It uses the vocabulary of [codebase-design](./codebase-design.md), and it hands back a one-page **design record**. It does not write an implementation and it does not edit code.
 
 It works in seven steps:
 
@@ -16,17 +16,17 @@ The idea comes from Ousterhout's "design it twice": your first shape is unlikely
 
 ## When it runs
 
-`architect` runs after every grilling session. Grilling settles what you are building and why, and it designs nothing: each time it meets a question about shape (a module, an interface, a data shape, a seam), it writes that question down and moves on. When the grilling is done, it passes the settled decisions and the shape questions to `architect`. [to-spec](./to-spec.md) then takes its shape and seams from the design record. If `to-spec` finds no record, it runs `architect` first.
+`to-design` runs after every grilling session. Grilling settles what you are building and why, and it designs nothing: each time it meets a question about shape (a module, an interface, a data shape, a seam), it writes that question down and moves on. When the grilling is done, it passes the settled decisions and the shape questions to `to-design`. [to-spec](./to-spec.md) then takes its shape and seams from the design record. If `to-spec` finds no record, it runs `to-design` first.
 
 You can also call it yourself ("design this"), and [improve-codebase-architecture](./improve-codebase-architecture.md) hands it a deepening candidate when you want alternative interfaces.
 
 ## Where it fits
 
 ```txt
-grilling → architect → to-spec → to-tickets → implement
+grilling → to-design → to-spec → to-tickets → implement
 ```
 
-If you push back on the shape, `architect` starts again from the grounding step. If you push back on what or why, it reopens grilling for that branch, then comes back. `architect` never implements anything.
+If you push back on the shape, `to-design` starts again from the grounding step. If you push back on what or why, it reopens grilling for that branch, then comes back. `to-design` never implements anything.
 
 ## It's working if
 

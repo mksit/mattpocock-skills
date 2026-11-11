@@ -26,7 +26,7 @@ If the harness can't choose a subagent's model, ignore this file.
 - research, novel or contested: opus @high
 - wayfinder research: sonnet @medium
 - architecture walker: opus @high
-- architect designers: opus, fable, sonnet
+- to-design designers: opus, fable, sonnet
 - fable-advisor: fable @medium
 
 ## Implementers, by tier

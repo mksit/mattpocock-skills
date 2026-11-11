@@ -23,7 +23,7 @@ Format a round like so:
 
 Word each question so "yes" accepts your recommended answer. When a wrong answer would be costly to undo (a migration, a data or history change), get the recommended answer from the **advisor subagent** (the `fable-advisor` agent).
 
-Grilling settles **what** and **why**, never **shape**. Never ask or answer a question about a module, an interface, a data shape or a seam: write it down as a **shape question** for `architect`, and keep grilling the rest of the tree.
+Grilling settles **what** and **why**, never **shape**. Never ask or answer a question about a module, an interface, a data shape or a seam: write it down as a **shape question** for `to-design`, and keep grilling the rest of the tree.
 
 Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
 
@@ -31,4 +31,4 @@ Finding _facts_ is your job, never the user's. When a frontier question needs a 
 
 The session is done when the frontier is empty: every branch of the decision tree visited, nothing left silently assumed. Before you call it empty, dispatch the advisor with every settled decision and the code they rest on. Put each gap or contradiction it names back on the frontier. Do not act on it until the user confirms you have reached a shared understanding.
 
-Then call the Skill tool with "architect". Pass it the settled decisions and every shape question. Grilling always hands off to `architect`; it never designs and never goes straight to a spec or to code.
+Then call the Skill tool with "to-design". Pass it the settled decisions and every shape question. Grilling always hands off to `to-design`; it never designs and never goes straight to a spec or to code.

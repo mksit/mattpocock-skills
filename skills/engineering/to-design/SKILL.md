@@ -1,17 +1,17 @@
 ---
-name: architect
+name: to-design
 description: Settle the shape of a change after grilling and before the spec. Ground it in the code it touches, sketch radically different shapes in parallel, screen them, and have the advisor choose. Use when grilling hands off its settled decisions and shape questions, when the user asks for a design, or when to-spec finds no design record.
 ---
 
-# Architect
+# To Design
 
 It runs between grilling and the spec:
 
 ```
-grilling → architect → to-spec
+grilling → to-design → to-spec
 ```
 
-Grilling settles **what** and **why** with the user, and designs nothing. Architect settles **how**: the modules, interfaces, data shapes and seams of a change, in the vocabulary of `codebase-design` (call the Skill tool with "codebase-design" if it isn't loaded). Its input is grilling's settled decisions and **shape questions**. Its output is a **design record**, the input `to-spec` takes. Architect writes no implementation and changes no code.
+Grilling settles **what** and **why** with the user, and designs nothing. `to-design` settles **how**: the modules, interfaces, data shapes and seams of a change, in the vocabulary of `codebase-design` (call the Skill tool with "codebase-design" if it isn't loaded). Its input is grilling's settled decisions and **shape questions**. Its output is a **design record**, the input `to-spec` takes. Architect writes no implementation and changes no code.
 
 It settles every shape question grilling handed it, in one design. Your first shape is unlikely to be the best (Ousterhout, "design it twice"), so the record always weighs at least two.
 
@@ -27,7 +27,7 @@ It settles every shape question grilling handed it, in one design. Your first sh
 
 2. **Frame.** Write the problem space for the user. Give the constraints, the dependencies, and a rough sketch that makes the constraints concrete; the sketch is not a proposal. Post it, then go straight to step 3, so the user reads it while the designers work. **Done when:** the frame is posted.
 
-3. **Sketch.** Dispatch the `architect designers` panel in parallel, each designer in a fresh context window. Each designer produces one shape under its own constraint:
+3. **Sketch.** Dispatch the `to-design designers` panel in parallel, each designer in a fresh context window. Each designer produces one shape under its own constraint:
    - "Minimise the interface: one to three entry points. Maximise leverage per entry point."
    - "Optimise for the most common caller: make the default case trivial."
    - "Maximise flexibility: support many use cases and extension."

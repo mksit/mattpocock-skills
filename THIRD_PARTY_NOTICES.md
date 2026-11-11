@@ -30,7 +30,7 @@ SOFTWARE.
 
 ## pstack
 
-`skills/engineering/architect/RED-FLAGS.md` and `skills/engineering/architect/DESIGN-RECORD.md` are adapted from `skills/architect/references/design-red-flags.md` and `skills/architect/references/rationale-template.md` in pstack, used under the MIT License. So are the skills in `skills/principles/`, adapted from the `principle-*` skills of the same name in pstack, with these changes:
+`skills/engineering/to-design/RED-FLAGS.md` and `skills/engineering/to-design/DESIGN-RECORD.md` are adapted from `skills/architect/references/design-red-flags.md` and `skills/architect/references/rationale-template.md` in pstack, used under the MIT License. So are the skills in `skills/principles/`, adapted from the `principle-*` skills of the same name in pstack, with these changes:
 
 - Each drops `user-invocable: false` from its frontmatter, so it is model-invoked like the repo's other skills.
 - `principle-explain-the-number` drops its pointer to pstack's `benchmark-checklist` skill, `principle-prove-it-works` its mention of `show-me-your-work` and its section on how often a check runs (the repo's own `principle-check-the-blast-radius` replaces it), and `principle-type-system-discipline` its mention of `typescript-best-practices`: the repo has none of them.

@@ -29,7 +29,7 @@ So the spec does not validate or decide anything. It records what you decided, i
 
 ## Seams before prose
 
-Before it writes anything, `to-spec` takes the **seams** where the feature will be tested from the [architect](./architect.md) design record, which you and the advisor already agreed. If there is no record, `to-spec` runs `architect` first. It prefers existing seams to new ones, and picks the highest seam it can. The ideal number of seams for a change is one.
+Before it writes anything, `to-spec` takes the **seams** where the feature will be tested from the [to-design](./to-design.md) design record, which you and the advisor already agreed. If there is no record, `to-spec` runs `to-design` first. It prefers existing seams to new ones, and picks the highest seam it can. The ideal number of seams for a change is one.
 
 Other skills use those agreed seams later. [tdd](https://aihero.dev/skills-tdd) works only at seams you agreed in advance. [code-review](https://aihero.dev/skills-code-review) reviews the diff against the spec, so a seam nobody agreed to shows up as a review finding. Both connections go through this document. That is why you should take the seam conversation seriously here, and not leave it for implementation.
 
@@ -65,7 +65,7 @@ A tracker issue may not return a very large spec in full, and there is no local 
 ## It's working if
 
 - It starts writing instead of asking you a new round of questions.
-- Its seams are the ones in the `architect` design record; it does not redesign them or ask you about them again.
+- Its seams are the ones in the `to-design` design record; it does not redesign them or ask you about them again.
 - It uses your project's nouns, not generic product-management boilerplate.
 - You remember making every decision in it. It invented nothing to fill a section.
 - The out-of-scope section lists real things. The things you refused are usually the most useful lines on the page.
@@ -75,7 +75,7 @@ A tracker issue may not return a very large spec in full, and there is no local 
 `to-spec` is a step in the main build chain, but only on the multi-session branch of it:
 
 ```txt
-grill-with-docs → architect → to-spec → to-tickets → implement → code-review → retro
+grill-with-docs → to-design → to-spec → to-tickets → implement → code-review → retro
 ```
 
-Upstream, [grill-with-docs](https://aihero.dev/skills-grill-with-docs) makes the decisions and [architect](./architect.md) settles the shape; this skill only records both, and a finished [wayfinder](https://aihero.dev/skills-wayfinder) map joins the chain here. Downstream, [to-tickets](https://aihero.dev/skills-to-tickets) cuts the spec into tracer-bullet tickets for [implement](https://aihero.dev/skills-implement) to build. When you're unsure which skill or flow fits, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+Upstream, [grill-with-docs](https://aihero.dev/skills-grill-with-docs) makes the decisions and [to-design](./to-design.md) settles the shape; this skill only records both, and a finished [wayfinder](https://aihero.dev/skills-wayfinder) map joins the chain here. Downstream, [to-tickets](https://aihero.dev/skills-to-tickets) cuts the spec into tracer-bullet tickets for [implement](https://aihero.dev/skills-implement) to build. When you're unsure which skill or flow fits, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
