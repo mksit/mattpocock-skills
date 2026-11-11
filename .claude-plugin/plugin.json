@@ -37,7 +37,7 @@
     "./skills/engineering/codebase-design",
     "./skills/engineering/architect",
     "./skills/principles/principle-prove-it-works",
-    "./skills/principles/principle-scope-checks-to-the-change",
+    "./skills/principles/principle-no-defensive-checks",
     "./skills/principles/principle-attack-the-premise",
     "./skills/principles/principle-fix-root-causes",
     "./skills/principles/principle-subtract-before-you-add",

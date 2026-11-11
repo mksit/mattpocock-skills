@@ -21,7 +21,7 @@ Red is a colour, not a measurement. A failing check proves the instrument only w
 
 ## Run only the checks the change can move
 
-Which checks a change runs, and which tests it adds, is the subject of "principle-scope-checks-to-the-change": call the Skill tool with it before you choose them.
+Which checks a change runs, and which tests it adds, is the subject of "principle-no-defensive-checks": call the Skill tool with it before you choose them.
 
 ## Script the check when you can
 
