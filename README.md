@@ -264,7 +264,7 @@ Judgment rules the workflow skills call at the step they govern, adapted from [p
 - **[principle-redesign-from-first-principles](./skills/principles/principle-redesign-from-first-principles/SKILL.md)**: When integrating a new requirement, redesign as if it had been a foundational assumption, and propagate the change through every reference. Adapted from pstack.
 - **[principle-type-system-discipline](./skills/principles/principle-type-system-discipline/SKILL.md)**: Make the compiler reject impossible states: brand semantic primitives, parse external data at boundaries, exhaust variants, and derive types from authoritative schemas. Adapted from pstack.
 - **[principle-experience-first](./skills/principles/principle-experience-first/SKILL.md)**: When implementation convenience conflicts with the experience of whoever consumes the work, choose their experience. Adapted from pstack.
-- **[principle-no-defensive-checks](./skills/principles/principle-no-defensive-checks/SKILL.md)**: Run only the checks a change can move (name the paths the diff reaches first), never repeat a result the new diff cannot move, and test only what the change adds or fixes.
+- **[principle-check-the-blast-radius](./skills/principles/principle-check-the-blast-radius/SKILL.md)**: Run only the checks a change can move (name the paths the diff reaches first), never repeat a result the new diff cannot move, and test only what the change adds or fixes.
 - **[principle-work-autonomously](./skills/principles/principle-work-autonomously/SKILL.md)**: Once the user hands you the work, decide, act and report; set an action reserved to the user aside and carry on; ask, all at once, only when nothing else can run; take on work outside the task only with the user's leave.
 
 ### Productivity

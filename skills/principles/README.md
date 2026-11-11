@@ -7,7 +7,7 @@ Judgment rules the workflow skills call at the step they govern. Each is adapted
 Reached by the model, or by a workflow skill that calls the Skill tool with its name.
 
 - **[principle-prove-it-works](./principle-prove-it-works/SKILL.md)**: Verify every task output against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, a self-report, or "it compiles". Adapted from pstack.
-- **[principle-no-defensive-checks](./principle-no-defensive-checks/SKILL.md)**: Run only the checks a change can move (name the paths the diff reaches first), never repeat a result the new diff cannot move, and test only what the change adds or fixes.
+- **[principle-check-the-blast-radius](./principle-check-the-blast-radius/SKILL.md)**: Run only the checks a change can move (name the paths the diff reaches first), never repeat a result the new diff cannot move, and test only what the change adds or fixes.
 - **[principle-attack-the-premise](./principle-attack-the-premise/SKILL.md)**: When two or more fixes that share one premise have failed the same gate, write the premise down and test it before the next fix. Adapted from pstack.
 - **[principle-fix-root-causes](./principle-fix-root-causes/SKILL.md)**: When debugging, fix the first place the system went wrong, not the place the symptom surfaced; a guard is a fix only when the state it handles is legitimate. Adapted from pstack.
 - **[principle-subtract-before-you-add](./principle-subtract-before-you-add/SKILL.md)**: When evolving a system, remove complexity first, then build: no speculative validators or guards, and delete what carries no novel content. Adapted from pstack.

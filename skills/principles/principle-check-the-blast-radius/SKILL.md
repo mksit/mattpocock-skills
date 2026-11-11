@@ -1,9 +1,9 @@
 ---
-name: principle-no-defensive-checks
+name: principle-check-the-blast-radius
 description: "Apply before choosing which checks to run on a change, before writing a check list into a subagent's brief, and before adding a test. Run only the checks the change can move, and test only what it adds or fixes."
 ---
 
-# No Defensive Checks
+# Check the Blast Radius
 
 A check earns its cost only when the change can move its result. A check the change cannot move proves nothing, and it spends time, machines and a reviewer's attention. Running it is not caution; it is waste.
 
