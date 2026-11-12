@@ -35,7 +35,7 @@ Break the work into **tracer bullet** tickets.
 
 </vertical-slice-rules>
 
-Give each ticket its **blocking edges**: the other tickets that must complete before it can start. A ticket with no blockers can start immediately. When two tickets would write the same file, call the Skill tool with "principle-separate-before-serializing-shared-state" before you add an edge between them.
+Give each ticket its **blocking edges**. A blocks B only when B needs something A produces (an API, data, or a decision) before B can be written. File overlap, merge conflicts, shared hardware and the order of checks never make an edge: conflicts are resolved at merge, and hardware is scheduled when jobs are submitted. A ticket with no blockers can start immediately.
 
 When a new API replaces an old one, call the Skill tool with "principle-migrate-callers-then-delete-legacy-apis" first. Use expand–contract below only when no single wave can land green.
 

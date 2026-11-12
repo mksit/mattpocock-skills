@@ -44,7 +44,7 @@ Work **autonomously**: take the whole graph through to the final gate without ha
 
 5. Once an **implementer subagent** completes, merge its work to the integration branch with a **merger subagent** (the `implementer` agent with a merge brief, in the `merger` role). If it can't finish the merge cleanly, re-dispatch it in the `merger with conflicts` role, with a brief that lets it resolve conflicts. Call the Skill tool with "principle-prove-it-works" before you update the frontier.
 
-6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. Before you dispatch them, call the Skill tool with "principle-separate-before-serializing-shared-state" on the files the frontier tickets will write. This allows for maximum concurrency.
+6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. This allows for maximum concurrency.
 
 7. Once all tickets are complete, call the Skill tool with "principle-prove-it-works" on the integration branch head. Then call the Skill tool with `code-review` on the integration branch. Use its merge-base with the default branch as the fixed point, and this spec as the spec. Fix all issues raised by the code review in a single fresh **implementer subagent** (in the `review fix implementer` role).
 
