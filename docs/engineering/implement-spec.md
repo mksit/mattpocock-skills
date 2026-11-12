@@ -55,7 +55,7 @@ It does now, though it didn't at first. Users running the in-progress version no
 
 **Two implementers running in parallel collided on the same file, or picked different names for the same thing.**
 
-Worktrees don't remove collisions; they postpone them to merge time. A blocking edge written from ticket text is a guess about which files each ticket will touch, and two tickets on "different parts of the codebase" still share a message catalogue, a config registry, or a type. Each implementer sees only its own ticket and the shared notes, never the other's work in progress, so one user's web and mobile tickets added the same string as `blockedSince` and `blockedOn`. When two frontier tickets touch one shared file, either add a blocking edge between them so they run one after the other, or have the exploration notes fix the exact names each ticket adds.
+Worktrees don't remove collisions; they postpone them to merge time. A blocking edge written from ticket text is a guess about which files each ticket will touch, and two tickets on "different parts of the codebase" still share a message catalogue, a config registry, or a type. Each implementer sees only its own ticket and the shared notes, never the other's work in progress, so one user's web and mobile tickets added the same string as `blockedSince` and `blockedOn`. A shared file is not a blocking edge: let both run, resolve the conflict at merge, and have the exploration notes fix the exact names each ticket adds.
 
 **Blocked tickets never start, even after their blocker has merged.**
 
