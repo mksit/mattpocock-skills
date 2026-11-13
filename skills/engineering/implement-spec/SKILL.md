@@ -22,11 +22,16 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 ## Autonomy
 
-Work **autonomously**: take the whole graph through to the final gate without handing the next move back to the user. Call the Skill tool with "principle-work-autonomously"; it settles open choices and says when to stop. On top of it:
+Work **autonomously** until the spec is complete: take the whole graph through to the final gate, and make every decision inside the spec's scope yourself. Call the Skill tool with "principle-work-autonomously" for how to settle a choice. Ask the user only for:
+
+- an irreversible external action, such as a public release;
+- anything the user has said to ask about first.
+
+Set each of those aside, carry on with everything that doesn't wait on it, and ask for all of them in one message once nothing else can run. On top of this:
 
 - Found work joins the graph only if one of the spec's acceptance criteria can't pass without it. Any other found work goes in the closing report for the user, unless they have allowed work outside the spec. The graph never grows past the spec.
 - For `tdd`, treat the spec's seams as pre-agreed. When the spec is missing a seam, have the advisor agree it.
-- Also stop for the user when a `hard` implementer has failed its ticket twice and the advisor can't name the cause.
+- A `hard` implementer that fails its ticket twice is not a stop: dispatch an `analyst` to find the cause, and re-dispatch one tier higher (step 4).
 - In the closing report, list every design decision (yours and the advisor's), every ticket you opened, and the found work you left, so the user can review them in one pass.
 
 ## Steps
