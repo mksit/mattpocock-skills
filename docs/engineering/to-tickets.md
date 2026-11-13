@@ -2,7 +2,12 @@
 
 `to-tickets` takes a plan, a [spec](https://www.aihero.dev/ai-coding-dictionary/spec), or the conversation you are in, and breaks it into a set of **[tickets](https://www.aihero.dev/ai-coding-dictionary/ticket)** on your issue tracker. Each ticket declares its **blocking edges**: the other tickets that have to finish before it can start.
 
-A spec already carries the shape of the change. When the work is a plan or a conversation instead, `to-tickets` takes the shape from the [to-design](./to-design.md) design record, and runs `to-design` first when there is none.
+The shape of the change comes from its input:
+
+| You hand it | It takes the shape from |
+| --- | --- |
+| A spec | The spec, which carries the shape already. |
+| A plan or a conversation | The [to-design](https://aihero.dev/skills-to-design) design record, and it runs `to-design` first when there is none. |
 
 Every ticket is a **tracer bullet**: a narrow but complete path through every layer of the change (schema, API, UI, tests) that you can demo on its own as soon as it lands. This is what makes the skill different from the obvious way to split work, which is to cut one layer at a time and integrate at the end. It also sizes each ticket to fit in a single fresh [context window](https://www.aihero.dev/ai-coding-dictionary/context-window), because a [session](https://www.aihero.dev/ai-coding-dictionary/session) that has never seen your spec will pick the ticket up.
 

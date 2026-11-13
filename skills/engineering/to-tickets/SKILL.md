@@ -16,7 +16,7 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 Work from whatever is already in the conversation context. If the user passes a reference (a spec path, an issue number or URL) as an argument, fetch it and read its full body and comments.
 
-A spec already carries its shape. When the work is not a spec, take the shape from the `to-design` design record in the conversation. If there is none, call the Skill tool with "to-design" before anything else.
+When the work is a plan or a conversation, take its shape from the `to-design` design record in the conversation, and call the Skill tool with "to-design" before anything else when there is none. A spec carries its shape already.
 
 ### 2. Explore the codebase (optional)
 

@@ -79,7 +79,7 @@ This is a real bug, still unfixed, and users report it across [harnesses](https:
 - Later rounds ask things the first round could not have asked.
 - It goes and looks facts up (reading files, dispatching a sub-agent) rather than asking you something it could have found out.
 - Research running in the background does not stall the round; only the questions that depend on it wait.
-- It never asks or answers a question about shape (a module, an interface, a data shape, a seam). It writes each one down, and when the session ends it hands them, with the settled decisions, to [to-design](../engineering/to-design.md).
+- It never asks or answers a question about shape (a module, an interface, a data shape, a seam). It writes each one down, and when the session ends it hands them, with the settled decisions, to [to-design](https://aihero.dev/skills-to-design).
 - Any other question that would be expensive to get wrong comes with `fable-advisor`'s recommendation, not just the session's own guess.
 - Before it calls the tree done, `fable-advisor` reads every settled decision, and anything it flags comes back as a new question.
 - It stops at the end and asks you to confirm the understanding is shared, instead of starting work.

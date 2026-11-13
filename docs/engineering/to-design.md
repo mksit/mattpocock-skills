@@ -1,6 +1,6 @@
 ## What it does
 
-`to-design` decides the **shape** of a change before anyone writes code: its modules, interfaces, data shapes and seams. It uses the vocabulary of [codebase-design](./codebase-design.md), and it hands back a one-page **design record**. It does not write an implementation and it does not edit code.
+`to-design` decides the **shape** of a change before anyone writes code: its modules, interfaces, data shapes and seams. It uses the vocabulary of [codebase-design](https://aihero.dev/skills-codebase-design), and it hands back a one-page **design record**. It does not write an implementation and it does not edit code.
 
 It works in seven steps:
 
@@ -16,9 +16,15 @@ The idea comes from Ousterhout's "design it twice": your first shape is unlikely
 
 ## When it runs
 
-`to-design` runs after every grilling session. Grilling settles what you are building and why, and it designs nothing: each time it meets a question about shape (a module, an interface, a data shape, a seam), it writes that question down and moves on. When the grilling is done, it passes the settled decisions and the shape questions to `to-design`. [to-spec](./to-spec.md) then takes its shape and seams from the design record. If `to-spec` finds no record, it runs `to-design` first, and so does [to-tickets](./to-tickets.md) when its work is not a spec.
+`to-design` runs after every grilling session. Grilling settles what you are building and why, and it designs nothing: each time it meets a question about shape (a module, an interface, a data shape, a seam), it writes that question down and moves on. When the grilling is done, it passes the settled decisions and the shape questions to `to-design`. The next step takes the shape from there:
 
-You can also call it yourself ("design this"), and [improve-codebase-architecture](./improve-codebase-architecture.md) hands it a deepening candidate when you want alternative interfaces.
+| Next step | Where it takes the shape |
+| --- | --- |
+| [to-spec](https://aihero.dev/skills-to-spec) | The design record, and it runs `to-design` first when there is none. |
+| [to-tickets](https://aihero.dev/skills-to-tickets) on a plan or a conversation | The design record, and it runs `to-design` first when there is none. |
+| [to-tickets](https://aihero.dev/skills-to-tickets) on a spec | The spec, which carries the shape already. |
+
+You can also call it yourself ("design this"), and [improve-codebase-architecture](https://aihero.dev/skills-improve-codebase-architecture) hands it a deepening candidate when you want alternative interfaces.
 
 ## Where it fits
 
