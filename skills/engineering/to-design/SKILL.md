@@ -11,7 +11,11 @@ It runs between grilling and the spec:
 grilling → to-design → to-spec
 ```
 
-Grilling settles **what** and **why** with the user, and designs nothing. `to-design` settles **how**: the modules, interfaces, data shapes and seams of a change, in the vocabulary of `codebase-design` (call the Skill tool with "codebase-design" if it isn't loaded). Its input is grilling's settled decisions and **shape questions**. Its output is a **design record**, the input `to-spec` takes. Architect writes no implementation and changes no code.
+The issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
+
+Everything `to-design` keeps lives on the issue tracker or in the conversation. Subagents return their findings in their reports, so their briefs name no notes file.
+
+Grilling settles **what** and **why** with the user, and designs nothing. `to-design` settles **how**: the modules, interfaces, data shapes and seams of a change, in the vocabulary of `codebase-design` (call the Skill tool with "codebase-design" if it isn't loaded). Its input is grilling's settled decisions and **shape questions**. Its output is a **design record**, the input `to-spec` takes. `to-design` writes no implementation and changes no code.
 
 It settles every shape question grilling handed it, in one design. Your first shape is unlikely to be the best (Ousterhout, "design it twice"), so the record always weighs at least two.
 
@@ -48,9 +52,9 @@ It settles every shape question grilling handed it, in one design. Your first sh
 
 6. **Agree.** Show the user the chosen shape, the advisor's verdict, and each rejected shape with the reason it lost. Word the question so "yes" accepts the chosen shape. Pushback on the shape is new grounding: take it back to step 1. Pushback on what or why reopens grilling: call the Skill tool with "grilling" for that branch, then return here. **Done when:** the user accepts a shape.
 
-7. **Record.** Write the design record per [DESIGN-RECORD.md](DESIGN-RECORD.md). It stays in the conversation, and `to-spec` takes its shape and seams from it.
+7. **Record.** Write the design record per [DESIGN-RECORD.md](DESIGN-RECORD.md) and publish it to the issue tracker. `to-spec` and `to-tickets` take the shape and seams from it.
 
-   A decision that should outlive the spec also becomes an ADR (call the Skill tool with "domain-modeling"). **Done when:** the record is written.
+   A decision that should outlive the spec also becomes an ADR (call the Skill tool with "domain-modeling"). **Done when:** the record is on the issue tracker.
 
 ## When constraints force the shape
 

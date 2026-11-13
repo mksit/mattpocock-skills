@@ -10,9 +10,13 @@ It works in seven steps:
 4. **Screen.** Each shape is checked against a list of design red flags.
 5. **Choose.** `fable-advisor` picks a base shape and says what to borrow from the others.
 6. **Agree.** You accept the shape, or push back.
-7. **Record.** It writes the design record.
+7. **Record.** It publishes the design record to your issue tracker.
 
 The idea comes from Ousterhout's "design it twice": your first shape is unlikely to be your best, so every record weighs at least two.
+
+## Prerequisites
+
+`to-design` publishes the design record as an issue, so [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) must first configure a tracker for this repo. It keeps nothing else: its subagents report back in the conversation, and leave no notes files.
 
 ## When it runs
 
@@ -40,7 +44,7 @@ If you push back on the shape, `to-design` starts again from the grounding step.
 - The shapes are genuinely different from each other, not small variations on one shape.
 - It writes each caller's usage before the interface.
 - It shows you why each rejected shape lost.
-- The design record you get back is one page, uses your project's terms, and contains no implementation steps.
+- The design record lands on your issue tracker as one page, in your project's terms, with no implementation steps.
 
 ## Common questions
 
