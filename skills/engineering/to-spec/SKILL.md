@@ -10,9 +10,9 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 ## Process
 
-1. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.
+1. Take the shape and the seams from the `to-design` design record in the conversation. The user and the advisor already agreed them there, so don't redesign or ask again. If there is no design record, call the Skill tool with "to-design" before anything else.
 
-2. Take the shape and the seams from the `to-design` design record in the conversation. The user and the advisor already agreed them there, so don't redesign or ask again. If there is no design record, call the Skill tool with "to-design" first.
+2. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.
 
 3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
 

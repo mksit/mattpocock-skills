@@ -16,7 +16,7 @@ The idea comes from Ousterhout's "design it twice": your first shape is unlikely
 
 ## When it runs
 
-`to-design` runs after every grilling session. Grilling settles what you are building and why, and it designs nothing: each time it meets a question about shape (a module, an interface, a data shape, a seam), it writes that question down and moves on. When the grilling is done, it passes the settled decisions and the shape questions to `to-design`. [to-spec](./to-spec.md) then takes its shape and seams from the design record. If `to-spec` finds no record, it runs `to-design` first.
+`to-design` runs after every grilling session. Grilling settles what you are building and why, and it designs nothing: each time it meets a question about shape (a module, an interface, a data shape, a seam), it writes that question down and moves on. When the grilling is done, it passes the settled decisions and the shape questions to `to-design`. [to-spec](./to-spec.md) then takes its shape and seams from the design record. If `to-spec` finds no record, it runs `to-design` first, and so does [to-tickets](./to-tickets.md) when its work is not a spec.
 
 You can also call it yourself ("design this"), and [improve-codebase-architecture](./improve-codebase-architecture.md) hands it a deepening candidate when you want alternative interfaces.
 
